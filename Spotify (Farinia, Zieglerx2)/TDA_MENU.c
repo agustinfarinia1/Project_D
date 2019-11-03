@@ -36,7 +36,7 @@ int textoMenuInicio(int x,int y)
     printf("3. Ingresar al sistema Admin.");
     y = sumar(y);
     gotoxy(x,y);
-    printf("0 para salir.");
+    printf("0 para salir.\n\n\t");
     y = sumar(y);   /// CREA MARGEN INFERIOR
     return y;
 }
@@ -108,12 +108,14 @@ void Cases_project()
         switch(opcion)
         {
             case 49:
-
+                    system("cls");
                     cargarUnUsuario();
-
                     break;
             case 50:
-                    //Case_user ();
+                    system("cls");
+                    Case_user();
+                    system("pause");
+                    printf("saliod de aca");
                     break;
             case 51:
                     //Case_Admin ();
@@ -126,26 +128,41 @@ void Case_user ()
 {
     int verif;
     char opc;
-    verif = ingresarusuario(arUsuario);
-    if (verif == 0)
+    FILE * archi;
+    stUsuario a;
+    verif = ingresarusuario(arUsuario);             ///verif tiene la id del useer
+    if (verif > 0)                                  ///si el ingreso retorno una id de user
     {
         do{
-
+            system("CLS");
             Screen_user_menu ();
             opc=getch();
             switch (opc)
             {
-                case 1:
-                                            ///ver mi perfil
-                    //muestraUnUsuario
+                case 49:
+                    system("CLS");
+                    int aux= verif;
+                    archi = fopen(arUsuario, "rb");
+                    if (archi!= NULL)
+                    {
+                        while(fread(&a, sizeof(stUsuario), 1, archi)>0)
+                        {
+                            if(a.idUsuario == aux)
+                            {
+                                muestraUnUsuario(a);
+                                system("pause");
+                            }
+                        }
+                    fclose(archi);
+                    }
                     break;
-                case 2:
+                case 50:
                 break;
-                case 3:
+                case 51:
                 break;
-                case 4:
+                case 52:
                 break;
-                case 5:
+                case 53:
                 break;
             }
           }while( opc != 27);

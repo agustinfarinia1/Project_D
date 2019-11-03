@@ -14,6 +14,7 @@ typedef struct{
     int admin; /// GENERA ADMIN (1) AL PRIMER INGRESO, Y LUEGO VALE 0.
 }stUsuario;
 
+int retorna_id (char nombrearchi, char name[]);
 stUsuario cargarUnUsuario();
 void guardarUsuario(stUsuario a);
 void muestraUnUsuario(stUsuario a);

@@ -7,18 +7,14 @@
 
 const char ESC = 27;
 
-int ingresarusuario(char nombarchi)             ///retorna cero si ingreso correctamente
+int ingresarusuario(char nombarchi)
 {
    FILE* fichero ;
    stUsuario user;
    int control_user=0;
    int control_pass=0;
-   int verificacion=0;
-   fichero=fopen(nombarchi,"rb");
-   if(fichero==NULL)
-   {
-      fichero=fopen(nombarchi,"rb");
-   }
+   int verificacion=0;                              ///si retorna cero no hay user, si retorna id de user hay usr
+   fichero=fopen(arUsuario,"rb");
    if(fichero!=NULL)
    {
        while(fread(&user, sizeof(stUsuario), 1, fichero)>0)
@@ -28,7 +24,8 @@ int ingresarusuario(char nombarchi)             ///retorna cero si ingreso corre
           gotoxy(10,12);
           printf("Ingrese un nombre de usuario: ");
           gets(user.nombreUsuario);
-          control_user=ver_exist_user(nombarchi, user.nombreUsuario);
+          verificacion = retorna_id (arUsuario, user.nombreUsuario);
+          control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           while(control_user!=1)
           {
               gotoxy(10,12);
@@ -38,12 +35,12 @@ int ingresarusuario(char nombarchi)             ///retorna cero si ingreso corre
               printf("Ingrese un usuario valido por favor: ");
               SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),143);
               gets(user.nombreUsuario);
-              control_user=ver_exist_user(nombarchi, user.nombreUsuario);
+              control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           }
           gotoxy(10,16);
           printf("Ingrese su contrase%ca : ",164);
           gets(user.pass);
-          control_pass = ver_exist_pass(nombarchi, user.pass);
+          control_pass = ver_exist_pass(arUsuario, user.pass);
           while(control_pass!=1)
           {
               gotoxy(10,12);
@@ -53,11 +50,12 @@ int ingresarusuario(char nombarchi)             ///retorna cero si ingreso corre
               printf("Ingrese una contrase%ca valida por favor: ", 165);
               SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),143);
               gets(user.pass);
-              control_pass=ver_exist_user(nombarchi, user.pass);
+              control_pass=ver_exist_user(arUsuario, user.pass);
           }
+
+        fclose(fichero);
         }
     }
-    fclose(fichero);
     return verificacion;
 }
 
@@ -66,6 +64,9 @@ stUsuario cargarUnUsuario()
 {
     int admin;
     stUsuario a;
+    printf("REGISTRANDO NUEVO USUARIO...");
+    Sleep(1000);
+    system("cls");
     a.idUsuario = buscaUltimoID() + 1; /// BUSCAMOS ULTIMO ID EN ARCHIVO, Y LE SUMAMOS 1.
     printf("Ingrese el nombre de Usuario: \n");
     fflush(stdin);
@@ -99,6 +100,10 @@ stUsuario cargarUnUsuario()
     a.eliminado = 0;
 
     guardarUsuario(a);
+    printf("\nUSUARIO REGISTRADO CORRECTAMENTE.\n");
+    printf("\Volviendo al menu Principal.\n");
+    Sleep(1000);
+    system("cls");
 }
 
 int versieslaprimeravez(char nombarchius)        ///si retorna 0 no hay admin, si retorna 1 existe admin
@@ -267,7 +272,7 @@ int ver_exist_user(char nombarchius [], char usaux[])
    int flag=0;
    FILE* ficherous;
    stUsuario user;
-   ficherous=fopen(nombarchius,"rb");
+   ficherous=fopen(arUsuario,"rb");
    if (ficherous == NULL)
    {
       printf ("\n el archivo no existe");
@@ -292,7 +297,7 @@ int ver_exist_pass(char nombarchius [], char passaux[])
    int flag=0;
    FILE* ficherous;
    stUsuario user;
-   ficherous=fopen(nombarchius,"rb");
+   ficherous=fopen(arUsuario,"rb");
    if (ficherous == NULL)
    {
       printf ("\n el archivo no existe");
@@ -312,3 +317,27 @@ int ver_exist_pass(char nombarchius [], char passaux[])
    return flag;
 }
 
+int retorna_id (char nombrearchi, char name[])
+{
+int id=0;
+   FILE* ficherous;
+   stUsuario user;
+   ficherous=fopen(arUsuario,"rb");
+   if (ficherous == NULL)
+   {
+      printf ("\n el archivo no existe");
+   }
+   else
+   {
+        while(fread(&user,sizeof(stUsuario),1,ficherous)>0)
+        {
+            if(strcmp(user.nombreUsuario,name)==0)
+            {
+                id= user.idUsuario;
+            }
+
+        }
+    fclose(ficherous);
+   }
+   return id;
+}
