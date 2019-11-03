@@ -15,6 +15,7 @@ typedef struct {
    int eliminado;  // indica 1 o 0 si la canción fue eliminada
 } stCancion;
 
+void muestra_tiempo (stCancion a);
 stCancion alta_cancion (stCancion a, char nombrearchi);
 int ultimaid(char nombrearchi);
 void mostrar_cancion (stCancion a);
