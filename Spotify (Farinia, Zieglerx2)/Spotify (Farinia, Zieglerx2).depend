@@ -99,7 +99,7 @@
 1572604544 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_listacancion.h
 	"TDA_Cancion.h"
 
-1572796456 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.c
+1572802312 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.c
 	<stdio.h>
 	<stdlib.h>
 	"gotoxy.h"
@@ -109,11 +109,11 @@
 
 1572603198 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\gotoxy.h
 
-1572794966 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.h
+1572802205 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.h
 
 1572794550 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.h
 
-1572796000 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.c
+1572802593 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>

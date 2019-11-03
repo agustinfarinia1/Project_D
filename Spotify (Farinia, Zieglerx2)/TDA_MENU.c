@@ -19,80 +19,16 @@ void VerificarExistencia()
     }
 }
 
-int textoMenuInicio(int x,int y)
+void textoMenuInicio()
 {
-    y = sumar(y);   /// CREA MARGEN SUPERIOR
-    x = sumar(x);   /// CREA MARGEN IZQUIERDO
-    gotoxy(x,y);
-    printf("Bienvenido al Sistema");
-    y = sumar(y);       /// SUMA Y PARA QUE NO SE AMONTONE SUCESIVAMENTE
-    gotoxy(x,y);
-    printf("1. Registrar un Usuario");
-    y = sumar(y);
-    gotoxy(x,y);
-    printf("2. Ingresar al sistema de Usuario.");
-    y = sumar(y);
-    gotoxy(x,y);
-    printf("3. Ingresar al sistema Admin.");
-    y = sumar(y);
-    gotoxy(x,y);
-    printf("0 para salir.\n\n\t");
-    y = sumar(y);   /// CREA MARGEN INFERIOR
-    return y;
-}
-
-int sumar(int numero)   /// crea el interlineado
-{
-    numero = numero + MARGEN;
-    return numero;
-}
-
-void encuadrar(int inicioX,int inicioY,int finX,int finY)
-{
-    int auxX;
-    int auxY;
-    for(auxX = inicioX - 1 ; auxX < finX + 2 ; auxX++){
-        for(auxY = inicioY - 1 ; auxY < finY + 2 ; auxY++){
-            if(auxY < inicioY){ /// RELLENO ARRIBA
-                if((auxX >= inicioX)&&(auxX <= finX)){
-                    gotoxy(auxX,auxY);  /// RELLENO
-                    printf("%c",205);
-                }
-                if(auxX < inicioX){
-                    gotoxy(auxX,auxY);  /// DIAGONAL IZQUIERDA
-                    printf("%c",201);
-                }
-                if(auxX > finX){
-                    gotoxy(auxX,auxY);  /// DIAGONAL DERECHA
-                    printf("%c",187);
-                }
-            }
-            if((auxY >= inicioY)&&(auxY <= finY)){
-                if(auxX < inicioX){
-                    gotoxy(auxX,auxY);
-                    printf("%c",186);
-                }
-                if(auxX > finX){
-                    gotoxy(auxX,auxY);
-                    printf("%c",186);
-                }
-            }
-            if(auxY > finY){ /// RELLENO ARRIBA
-                if((auxX >= inicioX)&&(auxX <= finX)){
-                    gotoxy(auxX,auxY);
-                    printf("%c",205);
-                }
-                if(auxX < inicioX){
-                    gotoxy(auxX,auxY);
-                    printf("%c",200);
-                }
-                if(auxX > finX){
-                    gotoxy(auxX,auxY);
-                    printf("%c",188);
-                }
-            }
-        }
-    }
+    system("CLS");
+    dibujarrectangulo();
+    hidecursor(0);
+    centrar_texto("<<Bienvenido al Sistema>>",1);
+    centrar_texto("1. Registrar un Usuario",4);
+    centrar_texto("2. Ingresar al sistema de Usuario.",6);
+    centrar_texto("3. Ingresar al sistema Admin.",8);
+    centrar_texto("0 para salir.\n\n\t",12);
 }
 
 void Cases_project()
@@ -115,7 +51,7 @@ void Cases_project()
                     system("cls");
                     Case_user();
                     system("pause");
-                    printf("saliod de aca");
+                    //printf("saliod de aca");
                     break;
             case 51:
                     //Case_Admin ();
@@ -139,7 +75,7 @@ void Case_user ()
             opc=getch();
             switch (opc)
             {
-                case 49:
+                case 49: /**< Muestra Usuario Activo */
                     system("CLS");
                     int aux= verif;
                     archi = fopen(arUsuario, "rb");
@@ -156,13 +92,14 @@ void Case_user ()
                     fclose(archi);
                     }
                     break;
-                case 50:
+                case 50: /**< Muestra Top 10 de Canciones */
                 break;
-                case 51:
+                case 51: /**< Escucha una cancion buscada */
                 break;
-                case 52:
+                case 52: /**< Ingresa al menu playlist */
                 break;
-                case 53:
+                case 53: /**< Sale al menu ppal */
+                    system("CLS");
                 break;
             }
           }while( opc != 27);
@@ -180,7 +117,7 @@ void Screen_user_menu ()
             printf ("\n (2)Ver Top 10 de Canciones recomendadas");
             printf ("\n (3)Escuchar una Cancion");
             printf ("\n (4)Ingresar al Menu Playlist");
-            printf ("\n (0)SALIR");
+            printf ("\n (ESC)SALIR");
             printf( "\n\Introduzca opci%cn : ", 162);
 }
 
@@ -194,4 +131,43 @@ void Screen_Playlist ()
             printf ("\n (4)Escuchar Playlist");
             printf ("\n (0)SALIR");
             printf( "\n\Introduzca opci%cn : ", 162);
+}
+
+
+void dibujarrectangulo()
+{
+    int i=3;
+    gotoxy(8,2);
+    printf("%c",201);
+    dibujarlinea(205,60);
+    printf("%c",187);
+    while(i<20)
+    {
+        gotoxy(8,i);
+        printf("%c",186);
+        dibujarlinea(0,60);
+        printf("%c",186);
+        i++;
+    }
+    gotoxy(8,20);
+    printf("%c",200);
+    dibujarlinea(205,60);
+    printf("%c",188);
+}
+
+void dibujarlinea(char c, int n)
+{
+    int i=0;
+    while (i<n)
+    {
+        printf("%c",c);
+        i++;
+    }
+}
+
+void centrar_texto(const char *texto, int y)
+{
+    int size_texto=strlen(texto);
+    gotoxy(40-(size_texto/2),y);
+    printf("%s",texto);
 }

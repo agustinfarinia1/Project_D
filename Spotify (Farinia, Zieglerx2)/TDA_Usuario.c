@@ -21,34 +21,22 @@ int ingresarusuario(char nombarchi)
        {
           system("cls");
           ///ingresar aqui un mensaje de beinvenida (Spotify trial)
-          gotoxy(10,12);
           printf("Ingrese un nombre de usuario: ");
           gets(user.nombreUsuario);
           verificacion = retorna_id (arUsuario, user.nombreUsuario);
           control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           while(control_user!=1)
           {
-              gotoxy(10,12);
-              printf("                                                          ");
-              gotoxy(10,12);
-              SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),140);
               printf("Ingrese un usuario valido por favor: ");
-              SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),143);
               gets(user.nombreUsuario);
               control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           }
-          gotoxy(10,16);
           printf("Ingrese su contrase%ca : ",164);
           gets(user.pass);
           control_pass = ver_exist_pass(arUsuario, user.pass);
           while(control_pass!=1)
           {
-              gotoxy(10,12);
-              printf("                                                          ");
-              gotoxy(10,12);
-              SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),140);
               printf("Ingrese una contrase%ca valida por favor: ", 165);
-              SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),143);
               gets(user.pass);
               control_pass=ver_exist_user(arUsuario, user.pass);
           }
@@ -139,6 +127,7 @@ void guardarUsuario(stUsuario a)
 }
 void muestraUnUsuario(stUsuario a)
 {
+
     printf("ID: %d \n", a.idUsuario);
     printf("Nombre del Usuario: %s \n", a.nombreUsuario);
     printf("A¤o de nacimiento: %d \n", a.anioNacimiento);
@@ -156,11 +145,12 @@ void muestraTodosLosUsuarios()
     {
         while(fread(&a, sizeof(stUsuario), 1, parchi)>0)
             {
-                    muestraUnUsuario(a);
-                }
+                muestraUnUsuario(a);
             }
+    }
     fclose(parchi);
 }
+
 void BajaUsuario(char nombreFiltro) /// USAMOS COMO REFERENCIA EL CAMPO "NOMBRE DE USUARIO" DEL USUARIO
 {
     int flag = 0;
