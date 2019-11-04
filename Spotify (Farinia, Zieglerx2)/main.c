@@ -7,10 +7,10 @@
 int main()
 {
     /**< Primer funcion se ejecuta, si no hay archi crea un admin y no se ejecuta mas; si existe archivo solo carga usuarios */
-    VerificarExistencia();
+    //VerificarExistencia();
     /**< Funcion auxiliar para comprobar lo anterior, ya que aparte de verificar existencia pasa al men principal (cases_project)
          donde registra e ingresa, pero esta incompleta*/
     //cargarUnUsuario();
-    Cases_project();
-    //muestraTodosLosUsuarios();
+    //Cases_project();
+    muestraTodosLosUsuarios();
 }

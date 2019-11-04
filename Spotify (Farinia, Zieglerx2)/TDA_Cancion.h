@@ -21,6 +21,8 @@ int ultimaid(char nombrearchi);
 void mostrar_cancion (stCancion a);
 void cargar_muchas ( char nombrearchi);
 void mostrar_archi_canciones (char nombrearchi);
+void reproducir(char nombreArchi[]);
+void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[]);
 
 /*
 

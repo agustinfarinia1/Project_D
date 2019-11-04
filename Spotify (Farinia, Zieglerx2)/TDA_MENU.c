@@ -4,6 +4,7 @@
 #include <windows.h>
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
+#include "TDA_Cancion.h"
 
 const int MARGEN = 3;
 
@@ -39,7 +40,7 @@ void Cases_project()
 
     do
     {
-        textoMenuInicio(8,10);
+        textoMenuInicio();
         opcion=getch();
         switch(opcion)
         {
@@ -54,10 +55,64 @@ void Cases_project()
                     //printf("saliod de aca");
                     break;
             case 51:
-                    //Case_Admin ();
+                    Case_admin();
                     break;
         }
     }while(opcion!=27);
+}
+
+void Case_admin ()
+{
+    FILE * archi;
+    stUsuario a;
+    char opc;
+    char nombre[20];
+    int verificacion=0;
+    verificacion= ingresar_admin(arUsuario);
+
+    if (verificacion == 1)
+    {
+        do{
+             printf("INGRESO EXITOSO\n\n");
+             Sleep(1000);
+             system("CLS");
+             Screen_admin_menu ();
+             opc=getch();
+             switch (opc)
+             {
+                case 49: /**< Funcion auxiliar que si se lo quiere registra un usuario */
+                         cargarUnUsuario();
+                         break;
+                case 50: /**< Da de baja un usuario modificando user.eliminado = 1 */
+                         system("cls");
+                         printf("ingrese el usuario a dar de baja.\n");
+                         gets(&nombre);
+                         BajaUsuario(nombre);
+                         printf("lo elimino");
+                         break;
+                case 51: /**< Modifica los datos del usuario eligiendo el campo */
+                         printf("ingrese el usuario a Modificar.\n");
+                         gets(nombre);
+                         modificacionUsuario(nombre);
+                         break;
+                case 52: /**< Carga canciones al archivo tantas como quiera el administrador */
+                         cargar_muchas(arCancion);
+                         break;
+                case 53: /**< Modifica los datos de Canciones por campo */
+                         modificar_datos_cancion(arCancion);
+                         break;
+                case 54:
+                         exit(0);
+                         break;
+             }
+
+        }while (opc != 27);
+    }
+    else
+    {
+        printf("Usted no tiene o permisos para acceder aqui (t.t)\n");
+        exit(0);
+    }
 }
 
 void Case_user ()
@@ -93,12 +148,13 @@ void Case_user ()
                     }
                     break;
                 case 50: /**< Muestra Top 10 de Canciones */
-                break;
+                        break;
                 case 51: /**< Escucha una cancion buscada */
-                break;
+                        reproducir(arCancion);
+                        break;
                 case 52: /**< Ingresa al menu playlist */
                 break;
-                case 53: /**< Sale al menu ppal */
+                case 53: /**< Sale al menu ppal y se cierra*/
                     system("CLS");
                 break;
             }
@@ -121,8 +177,23 @@ void Screen_user_menu ()
             printf( "\n\Introduzca opci%cn : ", 162);
 }
 
+void Screen_admin_menu ()
+{
+    system("cls");
+    hidecursor(0);
+    dibujarrectangulo();
+    centrar_texto ("(1)Dar de Alta un Usuario",3);
+    centrar_texto ("(2)Dar de Baja un Usuario",5);
+    centrar_texto ("(3)Modificar Datos de Usuario",7);
+    centrar_texto ("(4)Cargar Canciones al Archivo",9);
+    centrar_texto ("(4)Modificar datos de Canciones",11);
+    centrar_texto ("(ESC)SALIR",13);
+    centrar_texto( "Introduzca opcion : ", 15);
+}
+
 void Screen_Playlist ()
 {
+
             printf("\n\n");
             printf ("\n (1)Crear Playlist");
             printf ("\n (2)Agregar Cancion a la Playlist");

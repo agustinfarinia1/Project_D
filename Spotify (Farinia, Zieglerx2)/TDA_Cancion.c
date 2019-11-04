@@ -241,3 +241,35 @@ void muestra_tiempo (stCancion a)
  printf("Duracion:   %dmin : %d seg \n", entero, decimal_entero);
 
 }
+
+void reproducir(char nombreArchi[])
+{
+    system("cls");
+    char nombreCancion[20];
+    printf("Introduzca nombre de cancion a buscar:");
+    gets(nombreCancion);
+    buscarCancionPorNombre(nombreArchi,nombreCancion);
+
+}
+
+void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[])
+{
+    FILE * archi;
+    stCancion cancion;
+    archi = fopen(arCancion,"rb");
+    if(archi != NULL)
+    {
+        while(fread(&cancion,sizeof(stCancion),1,archi) > 0) /// RECORRE HASTA ENCONTRAR A UNA CANCION CON EL MISMO TITULO O TERMINE EL ARCHIVO
+        {
+            if(strcmp(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
+            {
+                mostrar_cancion(cancion);  /// CORTA EL CICLO
+            }
+            else
+            {
+                printf("La CAncion buscada no existe.\n");
+            }
+        }
+    }
+    fclose(archi);
+}

@@ -47,6 +47,47 @@ int ingresarusuario(char nombarchi)
     return verificacion;
 }
 
+int ingresar_admin(char nombarchi)               ///devuelve la id admin
+{
+   FILE* fichero ;
+   stUsuario user;
+   int control_user=0;
+   int control_pass=0;
+   int verificacion=0;                              ///si retorna cero no hay user, si retorna id de user hay usr
+   fichero=fopen(arUsuario,"rb");
+   if(fichero!=NULL)
+   {
+       while(fread(&user, sizeof(stUsuario), 1, fichero)>0 && user.eliminado !=1)
+       {
+          system("cls");
+          ///ingresar aqui un mensaje de beinvenida (Spotify trial)
+          printf("Ingrese un nombre de usuario: ");
+          gets(user.nombreUsuario);
+          verificacion = retorna_admin_lvl(arUsuario, user.nombreUsuario);
+          control_user=ver_exist_user(arUsuario, user.nombreUsuario);
+          while(control_user!=1)
+          {
+              printf("Ingrese un usuario valido por favor: ");
+              gets(user.nombreUsuario);
+              control_user=ver_exist_user(arUsuario, user.nombreUsuario);
+          }
+          printf("Ingrese su contrase%ca : ",164);
+          gets(user.pass);
+          control_pass = ver_exist_pass(arUsuario, user.pass);
+          while(control_pass!=1)
+          {
+              printf("Ingrese una contrase%ca valida por favor: ", 165);
+              gets(user.pass);
+              control_pass=ver_exist_user(arUsuario, user.pass);
+          }
+
+        fclose(fichero);
+        }
+    }
+    return verificacion;
+}
+
+
 
 stUsuario cargarUnUsuario()
 {
@@ -127,8 +168,9 @@ void guardarUsuario(stUsuario a)
 }
 void muestraUnUsuario(stUsuario a)
 {
-
+    printf("************************************************\n");
     printf("ID: %d \n", a.idUsuario);
+    printf("Eliminado: %d \n", a.eliminado);
     printf("Nombre del Usuario: %s \n", a.nombreUsuario);
     printf("A¤o de nacimiento: %d \n", a.anioNacimiento);
     printf("Sexo: %s \n", a.sexo);
@@ -151,7 +193,7 @@ void muestraTodosLosUsuarios()
     fclose(parchi);
 }
 
-void BajaUsuario(char nombreFiltro) /// USAMOS COMO REFERENCIA EL CAMPO "NOMBRE DE USUARIO" DEL USUARIO
+void BajaUsuario(char nombreFiltro[]) /// USAMOS COMO REFERENCIA EL CAMPO "NOMBRE DE USUARIO" DEL USUARIO
 {
     int flag = 0;
     stUsuario a;
@@ -166,6 +208,7 @@ void BajaUsuario(char nombreFiltro) /// USAMOS COMO REFERENCIA EL CAMPO "NOMBRE 
                 a.eliminado = 1;
                 fwrite(&a, sizeof(stUsuario), 1, parchi);
                 flag = 1;
+                muestraUnUsuario(a);                                             ///corte para dejar de buscar en edl archivo
             }
         }
     }
@@ -331,3 +374,32 @@ int id=0;
    }
    return id;
 }
+
+int retorna_admin_lvl (char nombrearchi, char name[])
+{
+   int id_admin = 0;
+   FILE* ficherous;
+   stUsuario user;
+   ficherous=fopen(arUsuario,"rb");
+   if (ficherous == NULL)
+   {
+      printf ("\n el archivo no existe");
+   }
+   else
+   {
+        while(fread(&user,sizeof(stUsuario),1,ficherous)>0)
+        {
+            if(strcmp(user.nombreUsuario,name)==0)
+            {
+                if (user.admin == 1)
+                {
+                    id_admin = 1;
+                }
+            }
+
+        }
+    fclose(ficherous);
+   }
+   return id_admin;
+}
+
