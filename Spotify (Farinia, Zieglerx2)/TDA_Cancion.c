@@ -38,7 +38,7 @@ stCancion alta_cancion (stCancion a, char nombrearchi)
     fflush(stdin);
     a.anio = anio + rand() % 219;
     fflush(stdin);
-    a.duracion = rand() % 3600 ;                  ///aca buscar manera de tener tiempo
+    a.duracion = rand() % 900 ;                  ///aca buscar manera de tener tiempo
     fflush(stdin);
     a.eliminado = 0;
 
@@ -234,11 +234,13 @@ void modificar_datos_cancion (char nombarchi)
 
 void muestra_tiempo (stCancion a)
 {
- float f = a.duracion / 60;
+ float x = a.duracion;
+ float y = 60;
+ float f = (x / y);
  int entero = (int)f;
  float decimal = f - entero;
  int decimal_entero = decimal * 100;
- printf("Duracion:   %dmin : %d seg \n", entero, decimal_entero);
+ printf("Duracion:   %dmin : %dseg \n", entero, decimal_entero);
 
 }
 

@@ -6,9 +6,9 @@
 typedef struct {
    int idCancion;
    char titulo[30];
-   char artista[20];
+   char artista[30];
    int duracion;
-   char album[20];
+   char album[30];
    int anio;
    char genero[20];
    char comentario[100];
