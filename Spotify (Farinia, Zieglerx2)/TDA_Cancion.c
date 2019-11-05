@@ -13,7 +13,7 @@ stCancion alta_cancion (stCancion a, char nombrearchi)
     srand(time(NULL));
 
     printf("Cargando Nueva Cancion....\n\n");
-    a.idCancion = 1 + ultimaid(arCancion);
+    a.idCancion = ultimaid(arCancion) + 1;
     printf("Ingrese el nombre del Artista: ");
     fflush(stdin);
     gets(&a.artista);
@@ -55,7 +55,7 @@ int ultimaid(char nombrearchi)
     archi = fopen(arCancion,"rb");
     if(archi != NULL)
     {
-        fseek(archi,0,1);
+        fseek(archi,0,2);
         id = ftell(archi)/sizeof (stCancion);
     }
     fclose(archi);
