@@ -96,7 +96,7 @@ void Case_admin ()
                          modificacionUsuario(nombre);
                          break;
                 case 52: /**< Carga canciones al archivo tantas como quiera el administrador */
-                         cargar_muchas(arCancion);
+                         alta_canciones();
                          break;
                 case 53: /**< Modifica los datos de Canciones por campo */
                          modificar_datos_cancion(arCancion);

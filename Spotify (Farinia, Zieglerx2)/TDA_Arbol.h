@@ -1,24 +1,32 @@
 #ifndef TDA_ARBOL_H_INCLUDED
 #define TDA_ARBOL_H_INCLUDED
+
 #include "TDA_Cancion.h"
+#include "TDA_ListaCancion.h"
+
 typedef struct
 {
     stCancion dato;
     struct nodoArbolCancion * izq;
     struct nodoArbolCancion * der;
-} nodoArbolCancion;
+}nodoArbolCancion;
+
+/// PROTOTIPADO ARBOL
 
 nodoArbolCancion * inicArbol();
 nodoArbolCancion * crearNodoArbol(stCancion dato);
 nodoArbolCancion * insertarNodoArbol(nodoArbolCancion * arbol, nodoArbolCancion * nuevo);
-nodoArbolCancion * preOrder(nodoArbolCancion * arbol);
-nodoArbolCancion * inOrder(nodoArbolCancion * arbol);
-nodoArbolCancion * postOrder(nodoArbolCancion * arbol);
+
+void preOrder(nodoArbolCancion * arbol);
+void inOrder(nodoArbolCancion * arbol);
+void postOrder(nodoArbolCancion * arbol);
+
 
 /// hacer despues !!! borrarUnNodoArbol (buscarlo por idCancion)
-nodoArbolCancion * buscarCancion(nodoArbolCancion * arbol, int idCancion);
-void cargarArbolDesdeArchivo(); /// HACER LUEGO!
 
+nodoArbolCancion * buscarCancion(nodoArbolCancion * arbol, int idCancionFiltro);
+
+/// FUNCIONES AUXILIARES
 
 
 #endif // TDA_ARBOL_H_INCLUDED

@@ -1,65 +1,83 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 #include <windows.h>
 #include <time.h>
 #include "TDA_Cancion.h"
 
+#define arCancion "cancion.dat"
 
-stCancion alta_cancion (stCancion a, char nombrearchi)
+void alta_canciones()
 {
-    char opc = 's';
+    stCancion a;
+    char op;
     int anio = 1800;
     srand(time(NULL));
-
-    printf("Cargando Nueva Cancion....\n\n");
-    a.idCancion = ultimaid(arCancion) + 1;
-    printf("Ingrese el nombre del Artista: ");
-    fflush(stdin);
-    gets(&a.artista);
-    printf("\nIngrese el nombre de la Cancion: ");
-    fflush(stdin);
-    gets(&a.titulo);
-    printf("\nIngrese el nombre del Album: ");
-    fflush(stdin);
-    gets(&a.album);
-    printf("\nIngrese el Genero Musical: ");
-    fflush(stdin);
-    gets(&a.genero);
-    printf("\nDesea agregar algun comentario ? (s/n): ");
-    fflush(stdin);
-    scanf("%c", &opc);
-    if (opc == 's')
-    {
+    do{
+       char Artista[] = {"La Renga"};
+        char Album[] = {"La Esquina del Infinito"};
+        char Genero[] = {"Rock"};
+        printf("Cargando Nueva Cancion....\n\n");
+        a.idCancion = ultimaid(arCancion) + 1;
+        //printf("Ingrese el nombre del Artista: ");
+        fflush(stdin);
+        strcpy(a.artista,Artista);
+        printf("\nIngrese el nombre de la Cancion: ");
+        fflush(stdin);
+        gets(&a.titulo);
+        //printf("\nIngrese el nombre del Album: ");
+        fflush(stdin);
+        strcpy(a.album , Album);
+        //printf("\nIngrese el Genero Musical: ");
+        fflush(stdin);
+        strcpy(a.genero, Genero);
+        /*
+        printf("\nDesea agregar algun comentario ? (s/n): ");
+        fflush(stdin);
+        scanf("%c", &opc);
+        if (opc == 's')
+        {
         fflush(stdin);
         printf("\nIngrese el comentario aqui: ");
         gets(&a.comentario);
-    }
-    fflush(stdin);
-    a.anio = anio + rand() % 219;
-    fflush(stdin);
-    a.duracion = rand() % 900 ;                  ///aca buscar manera de tener tiempo
-    fflush(stdin);
-    a.eliminado = 0;
+        }
+        */
+        fflush(stdin);
+        a.anio = 2000;
+        fflush(stdin);
+        a.duracion = rand() % 900 ;
+        fflush(stdin);
+        a.eliminado = 0;
 
-    printf("\nCancion cargada correctamente... \n");
-    Sleep(1000);
-    system("CLS");
-return a;
+        guardarCancion(a);
+
+        printf("\nCancion cargada correctamente... \n");
+        Sleep(1000);
+        system("CLS");
+
+        printf("PRESIONE ESC PARA SALIR... \n");
+
+        op = getch();
+
+    }while(op!=27);
 }
 
-int ultimaid(char nombrearchi)
+int ultimaid()
 {
     int id = 0;
-    FILE * archi;
-    archi = fopen(arCancion,"rb");
+    stCancion a;
+    FILE * archi = fopen(arCancion, "rb");
     if(archi != NULL)
     {
-        fseek(archi,0,2);
-        id = ftell(archi)/sizeof (stCancion);
+        while(fread(&a, sizeof(stCancion), 1, archi)>0)
+        {
+            id = a.idCancion;
+        }
     }
     fclose(archi);
+
     return id;
+
 }
 
 void mostrar_cancion (stCancion a)
@@ -71,43 +89,28 @@ void mostrar_cancion (stCancion a)
     printf("Genero:     %s\n", a.genero);
     printf("Anio:       %d\n", a.anio);
     muestra_tiempo(a);
-    //printf("Duracion:   %d\n", a.duracion);
     printf("Eliminado:  %d\n", a.eliminado);
     printf("****************************************\n");
 
 }
 
-void cargar_muchas (char nombrearchi)
+void guardarCancion(stCancion a)
 {
-    FILE * archi;
-    char opc;
-    stCancion a;
-    archi = fopen(arCancion, "ab");
-    if (archi == NULL)
-    {
-        archi = fopen(arCancion, "w+b");
-    }
-    do
-    {
-        system("CLS");
-        a = alta_cancion(a, arCancion);
-        fwrite(&a, sizeof (stCancion), 1, archi);
-
-        printf("Presiones ESC para salir\n");
-        opc = getch();
-    }while (opc != 27);
-
+  FILE * archi = fopen(arCancion, "ab");
+  if(archi != NULL)
+  {
+      fwrite(&a, sizeof(stCancion), 1, archi);
+  }
     fclose(archi);
 }
 
-void mostrar_archi_canciones (char nombrearchi)
+void mostrar_archi_canciones()
 {
-    FILE * archi;
     stCancion a;
-    archi = fopen(arCancion, "rb");
+    FILE * archi = fopen(arCancion, "rb");
     if (archi != NULL)
     {
-        while (fread(&a, sizeof(stCancion), 1, archi) > 0)
+        while(fread(&a, sizeof(stCancion), 1, archi) > 0)
         {
             mostrar_cancion(a);
         }
@@ -115,13 +118,12 @@ void mostrar_archi_canciones (char nombrearchi)
     fclose(archi);
 }
 
-void bajacancion (char nombarchi)
+void bajacancion()
 {
-    FILE* archi ;
     int idaux=0;
     int selec;
     char resultadocancion ;
-    archi = fopen(nombarchi,"r+b");
+    FILE * archi = fopen(arCancion,"r+b");
     stCancion cancion ;
     printf( "\n ¿Que ID  queres Modificar?: " );
     scanf( "%i", &idaux);
@@ -138,13 +140,14 @@ void bajacancion (char nombarchi)
     }
     fclose (archi);
 }
-void modificar_datos_cancion (char nombarchi)
+
+void modificar_datos_cancion()
 {
     int idaux=0,datonuevoint;
     char datonuevo [30],resultado,opcion;
-    FILE* archi;
+
     stCancion cancion;
-    archi = fopen(nombarchi, "r+b");
+    FILE * archi = fopen(arCancion, "r+b");
     printf( "\n ¿Que ID estas buscando?: " );
 	scanf( "%i", &idaux);
 	resultado = fseek(archi,sizeof(cancion)*(idaux-1),0);
@@ -232,16 +235,37 @@ void modificar_datos_cancion (char nombarchi)
     fclose (archi);
 }
 
+stCancion buscarCancionEnArchivo(int idFiltro) /// PREGUNTAR ERICK SI CAMBIO PARA QUE EL ID ARRANQUE EN 0
+{
+    stCancion c;
+
+    int flag = 0;
+    FILE * archi = fopen(arCancion, "rb");
+    if(archi != NULL)
+    {
+        while(fread(&c, sizeof(stCancion), 1, archi)>0 && (flag == 0))
+        {
+            if(c.idCancion == idFiltro)
+            {
+                flag = 1;
+            }
+        }
+    }
+    fclose(archi);
+
+    return c;
+
+}
+
 void muestra_tiempo (stCancion a)
 {
  float x = a.duracion;
  float y = 60;
- float f = (x / y);
+ float f = (x/y);
  int entero = (int)f;
  float decimal = f - entero;
- int decimal_entero = decimal * 100;
- printf("Duracion:   %dmin : %dseg \n", entero, decimal_entero);
-
+ int decimal_entero = decimal * 60;
+ printf("Duracion:   %d min : %d seg \n", entero, decimal_entero);
 }
 
 void reproducir(char nombreArchi[])

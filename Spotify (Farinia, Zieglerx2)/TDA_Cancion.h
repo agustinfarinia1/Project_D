@@ -3,7 +3,7 @@
 
 #define arCancion "cancion.dat"
 
-typedef struct {
+typedef struct{
    int idCancion;
    char titulo[30];
    char artista[30];
@@ -13,16 +13,20 @@ typedef struct {
    char genero[20];
    char comentario[100];
    int eliminado;  // indica 1 o 0 si la canción fue eliminada
-} stCancion;
+}stCancion;
 
-void muestra_tiempo (stCancion a);
-stCancion alta_cancion (stCancion a, char nombrearchi);
-int ultimaid(char nombrearchi);
-void mostrar_cancion (stCancion a);
-void cargar_muchas ( char nombrearchi);
-void mostrar_archi_canciones (char nombrearchi);
-void reproducir(char nombreArchi[]);
 void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[]);
+void reproducir(char nombreArchi[]);
+void alta_canciones();
+int ultimaid();
+void mostrar_cancion (stCancion a);
+void guardarCancion(stCancion a);
+void mostrar_archi_canciones();
+void bajacancion();
+void modificar_datos_cancion();
+void muestra_tiempo(stCancion a);
+
+stCancion buscarCancionEnArchivo(int idFiltro);
 
 /*
 
