@@ -25,10 +25,12 @@ void mostrar_archi_canciones();
 void bajacancion();
 void modificar_datos_cancion();
 void muestra_tiempo(stCancion a);
+int verificarExistenciaCancionEnArchivo(char nombreCancion[]);
 stCancion obtenerCancionPorNombre(char archivoCancion[],char nombreCancion[]);
 stCancion buscarCancionEnArchivo(int idFiltro);
+void barritadecarga(char nombre[]);
 
-/*
+/**
 
 
 Importar y adaptar las funciones de Alta, Baja, Modificación, Consulta y

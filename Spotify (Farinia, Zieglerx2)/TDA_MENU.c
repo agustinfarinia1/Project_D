@@ -5,6 +5,7 @@
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
 #include "TDA_Cancion.h"
+#include "TDA_ADLPlaylist.h"
 
 const int MARGEN = 3;
 
@@ -77,7 +78,7 @@ void Case_admin ()
              Sleep(1000);
              system("CLS");
              Screen_admin_menu ();
-             opc=getch();
+             opc = getch();
              switch (opc)
              {
                 case 49: /**< Funcion auxiliar que si se lo quiere registra un usuario */
@@ -127,7 +128,11 @@ void Case_user ()
         do{
             system("CLS");
             Screen_user_menu ();
-            opc=getch();
+            int dimArreglo = 100; // FALTA FUNCION PARA SACAR  DIM DINAMICA, CONTANDO TODOS LOS USERS DEL ARRAY
+            int validos = 0;
+            celdaPlaylist arregloLista[dimArreglo];
+            validos = archivoToADL(arregloLista);   // INGRESA TODOS LOS DATOS DEL ARCHIVO EN ARREGLO PARA PODER EMPEZAR A TRABAJAR
+            opc = getch();
             switch (opc)
             {
                 case 49: /**< Muestra Usuario Activo */
@@ -153,6 +158,14 @@ void Case_user ()
                         reproducir(arCancion);
                         break;
                 case 52: /**< Ingresa al menu playlist */
+
+                Screen_usuario_playlist(verif,arregloLista,validos,dimArreglo);
+
+
+
+
+
+
                 break;
                 case 53: /**< Sale al menu ppal y se cierra*/
                     system("CLS");
@@ -198,9 +211,9 @@ void Screen_Playlist ()
             printf ("\n (1)Crear Playlist");
             printf ("\n (2)Agregar Cancion a la Playlist");
             printf ("\n (3)Ver todas mis Playlist");
-            printf ("\n (3)Borrar Cancion de Playlist");
-            printf ("\n (4)Escuchar Playlist");
-            printf ("\n (0)SALIR");
+            printf ("\n (4)Borrar Cancion de Playlist");
+            printf ("\n (5)Escuchar Playlist");
+            printf ("\n (ESC)SALIR");
             printf( "\n\Introduzca opci%cn : ", 162);
 }
 
@@ -241,4 +254,31 @@ void centrar_texto(const char *texto, int y)
     int size_texto=strlen(texto);
     gotoxy(40-(size_texto/2),y);
     printf("%s",texto);
+}
+
+void Screen_usuario_playlist(int idUsuario,celdaPlaylist arregloLista[],int validos,int dim)
+{
+    char opcionMenu;
+    do
+    {
+        system("cls");
+        Screen_Playlist();
+        opcionMenu = getch();
+        Sleep(200);
+        switch(opcionMenu)
+            {
+                case 49: // CREA PLAYLIST,SI EL USUARIO NO TIENE
+                    validos = agregarIdUsuario(arregloLista,idUsuario,validos);
+                    printf("hola mi valido es %d",validos);
+                    Sleep(300);
+                break;
+                case 50: // AGREGA CANCIONES A LA PLAYLIST CON UN BUCLE
+                    validos = cargarArreglo(arregloLista,idUsuario,validos,dim);
+                break;
+                case 51:
+                    mostrarArregloLista(arregloLista,validos);
+                    Sleep(3000);
+                break;
+            }
+    }while(opcionMenu != 27);
 }

@@ -83,9 +83,9 @@
 	"TDA_Cancion.h"
 	"TDA_ListaCancion.h"
 
-1573054366 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_cancion.h
+1574020010 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_cancion.h
 
-1573053715 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_cancion.c
+1574020124 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_cancion.c
 	<stdlib.h>
 	<string.h>
 	<stdio.h>
@@ -103,7 +103,7 @@
 1572604544 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_listacancion.h
 	"TDA_Cancion.h"
 
-1573054432 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.c
+1574023707 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.c
 	<stdio.h>
 	<stdlib.h>
 	"gotoxy.h"
@@ -111,21 +111,23 @@
 	"TDA_MENU.h"
 	"TDA_Usuario.h"
 	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
 
 1572603198 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\gotoxy.h
 
-1572881434 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.h
+1574023735 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_menu.h
+	"TDA_ADLPlaylist.h"
 
-1572882887 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.h
+1574019052 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.h
 
-1572883062 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.c
+1574019049 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_usuario.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
 	"TDA_Usuario.h"
 
-1572882948 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\main.c
+1574023920 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\main.c
 	<stdio.h>
 	<stdlib.h>
 	"windows.h"
@@ -143,5 +145,23 @@
 
 1573054184 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tools.h
 	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1573207724 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1573207726 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574022240 c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_adlplaylist.h
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574019842 source:c:\users\leo19\documents\github\project_d\spotify (farinia, zieglerx2)\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
 	"TDA_ListaCancion.h"
 

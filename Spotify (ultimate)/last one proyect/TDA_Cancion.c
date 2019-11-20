@@ -234,8 +234,7 @@ void modificar_datos_cancion()
     }
     fclose (archi);
 }
-
-stCancion buscarCancionEnArchivo(int idFiltro) /// PREGUNTAR ERICK SI CAMBIO PARA QUE EL ID ARRANQUE EN 0
+int verificarExistenciaCancionEnArchivo(char nombreCancion[]) /// PREGUNTAR ERICK SI CAMBIO PARA QUE EL ID ARRANQUE EN 0
 {
     stCancion c;
 
@@ -245,7 +244,7 @@ stCancion buscarCancionEnArchivo(int idFiltro) /// PREGUNTAR ERICK SI CAMBIO PAR
     {
         while(fread(&c, sizeof(stCancion), 1, archi)>0 && (flag == 0))
         {
-            if(c.idCancion == idFiltro)
+            if(strcmp(c.titulo,nombreCancion) == 0)
             {
                 flag = 1;
             }
@@ -253,7 +252,29 @@ stCancion buscarCancionEnArchivo(int idFiltro) /// PREGUNTAR ERICK SI CAMBIO PAR
     }
     fclose(archi);
 
-    return c;
+    return flag;
+
+}
+stCancion buscarCancionEnArchivo(int idFiltro) /// BUSCA LA CANCION QUE QUEREMOS EN EL ARCHIVO Y LA DEVUELVE
+{
+    stCancion c;
+    stCancion cancion;
+    int flag = 0;
+    FILE * archi = fopen(arCancion, "rb");
+    if(archi != NULL)
+    {
+        while(fread(&c, sizeof(stCancion), 1, archi)>0 && (flag == 0))
+        {
+            if(c.idCancion == idFiltro)
+            {
+                cancion = c;
+                flag = 1;
+            }
+        }
+    }
+    fclose(archi);
+
+    return cancion;
 
 }
 
@@ -268,37 +289,59 @@ void muestra_tiempo (stCancion a)
  printf("Duracion:   %d min : %d seg \n", entero, decimal_entero);
 }
 
+void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[])
+{
+    FILE * archi;
+    stCancion cancion;
+    int flag = 0;
+    archi = fopen(arCancion,"rb");
+    if(archi != NULL)
+    {
+        while(fread(&cancion,sizeof(stCancion),1,archi) > 0 && flag == 0) /// RECORRE HASTA ENCONTRAR A UNA CANCION CON EL MISMO TITULO O TERMINE EL ARCHIVO
+        {
+            if(strcmp(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
+            {
+                flag = 1;
+                mostrar_cancion(cancion);  /// CORTA EL CICLO
+                Sleep(900);
+            }
+        }
+        if(flag == 0)
+        {
+            printf("La cancion buscada no existe... \n");
+        }
+    }
+    fclose(archi);
+}
+
 void reproducir(char nombreArchi[])
 {
     system("cls");
     char nombreCancion[20];
     printf("Introduzca nombre de cancion a buscar:");
     gets(nombreCancion);
+    system("cls");
     buscarCancionPorNombre(nombreArchi,nombreCancion);
-
+    printf("Reproduciendo cancion...\n");
+    barritadecarga("/");
 }
 
-void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[])
+void barritadecarga(char nombre[])
 {
-    FILE * archi;
-    stCancion cancion;
-    archi = fopen(arCancion,"rb");
-    if(archi != NULL)
-    {
-        while(fread(&cancion,sizeof(stCancion),1,archi) > 0) /// RECORRE HASTA ENCONTRAR A UNA CANCION CON EL MISMO TITULO O TERMINE EL ARCHIVO
-        {
-            if(strcmp(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
-            {
-                mostrar_cancion(cancion);  /// CORTA EL CICLO
-            }
-            else
-            {
-                printf("La CAncion buscada no existe.\n");
-            }
-        }
-    }
-    fclose(archi);
+
+   SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),138);
+   int segundos=5;
+   int i=0;
+   for(i=0; i<33; i++)                  ///cambiando el valor 33 hace la barra mas chica
+   {
+   gotoxy(i,12);
+   printf("%c",219);
+   Sleep(30);
+   }
+   SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),143);
+   gotoxy(12,20);
 }
+
 stCancion obtenerCancionPorNombre(char nombreArchi[],char nombreCancion[])
 {
     FILE * archi;
@@ -313,11 +356,11 @@ stCancion obtenerCancionPorNombre(char nombreArchi[],char nombreCancion[])
             {
                 flag = 1;
             }
-            else
+        }
+        if(flag == 0)
             {
                 printf("La CAncion buscada no existe.\n");
             }
-        }
     }
     fclose(archi);
     return cancion;

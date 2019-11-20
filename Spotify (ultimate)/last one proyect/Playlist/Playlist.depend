@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1572465199 source:c:\users\usuario\desktop\playlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"playlist.h"
+
+1572466042 c:\users\usuario\desktop\playlist\playlist.h
+	<stdio.h>
+	<stdlib.h>
+
+1572466549 source:c:\users\usuario\desktop\playlist\playlist.c
+	"playlist.h"
+
+1572469571 source:c:\users\equipo\desktop\playlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"playlist.h"
+
+1572470124 c:\users\equipo\desktop\playlist\playlist.h
+	<stdio.h>
+	<stdlib.h>
+
+1572470181 source:c:\users\equipo\desktop\playlist\playlist.c
+	"playlist.h"
+
+1573823346 source:d:\users\usuario\downloads\pf_p2_utn_tup2019_c6-master\playlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"playlist.h"
+
+1573823346 d:\users\usuario\downloads\pf_p2_utn_tup2019_c6-master\playlist\playlist.h
+	<stdio.h>
+	<stdlib.h>
+
+1573823346 source:d:\users\usuario\downloads\pf_p2_utn_tup2019_c6-master\playlist\playlist.c
+	"playlist.h"
+

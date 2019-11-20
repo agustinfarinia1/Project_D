@@ -1,0 +1,503 @@
+# depslib dependency file v1.0
+1574006582 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574006582 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\main.c
+	<stdio.h>
+	<stdlib.h>
+	"windows.h"
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+
+1574034874 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_menu.h
+	"TDA_ADLPlaylist.h"
+
+1574039839 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_adlplaylist.h
+	"TDA_Usuario.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574036979 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_usuario.h
+
+1574006586 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_listacancion.h
+	"TDA_Cancion.h"
+
+1574038768 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_cancion.h
+
+1574035611 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574052658 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
+
+1574006582 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_arbol.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+	"TDA_Arbol.h"
+	"Tools.h"
+
+1574006584 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_arbol.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574006588 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tools.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574051254 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_cancion.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+
+1574044212 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_listacancion.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ListaCancion.h"
+	"TDA_Cancion.h"
+
+1574052562 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_menu.c
+	<stdio.h>
+	<stdlib.h>
+	"gotoxy.h"
+	<windows.h>
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
+
+1574006582 f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\gotoxy.h
+
+1574052317 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1574036960 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tda_usuario.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"TDA_Usuario.h"
+
+1574006586 source:f:\downloads 2\code blocks files\tp final\spotify (farinia, zieglerx2)\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<string.h>
+	"TDA_Cancion.h"
+	"Tools.h"
+
+1574006582 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574006582 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\main.c
+	<stdio.h>
+	<stdlib.h>
+	"windows.h"
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+
+1574034876 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_menu.h
+	"TDA_ADLPlaylist.h"
+
+1574039840 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_adlplaylist.h
+	"TDA_Usuario.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574036980 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_usuario.h
+
+1574006586 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_listacancion.h
+	"TDA_Cancion.h"
+
+1574038770 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_cancion.h
+
+1574035612 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574006582 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_arbol.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+	"TDA_Arbol.h"
+	"Tools.h"
+
+1574006584 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_arbol.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574006588 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tools.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574051256 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_cancion.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+
+1574044214 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_listacancion.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ListaCancion.h"
+	"TDA_Cancion.h"
+
+1574052564 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_menu.c
+	<stdio.h>
+	<stdlib.h>
+	"gotoxy.h"
+	<windows.h>
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
+
+1574006582 c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\gotoxy.h
+
+1574052318 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1574036962 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_usuario.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"TDA_Usuario.h"
+
+1574006586 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<string.h>
+	"TDA_Cancion.h"
+	"Tools.h"
+
+1574118703 source:c:\users\nicolas\desktop\agustin\carpetas\escuela\utn\programacion2\spotify (farinia, zieglerx2)\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
+
+1574100918 source:d:\spotify (farinia, zieglerx2)\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574100918 source:d:\spotify (farinia, zieglerx2)\main.c
+	<stdio.h>
+	<stdlib.h>
+	"windows.h"
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+
+1574100922 d:\spotify (farinia, zieglerx2)\tda_menu.h
+	"TDA_ADLPlaylist.h"
+
+1574261022 d:\spotify (farinia, zieglerx2)\tda_adlplaylist.h
+	"TDA_Usuario.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574100924 d:\spotify (farinia, zieglerx2)\tda_usuario.h
+
+1574100922 d:\spotify (farinia, zieglerx2)\tda_listacancion.h
+	"TDA_Cancion.h"
+
+1574100922 d:\spotify (farinia, zieglerx2)\tda_cancion.h
+
+1574100922 d:\spotify (farinia, zieglerx2)\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574261576 source:d:\spotify (farinia, zieglerx2)\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
+
+1574100922 source:d:\spotify (farinia, zieglerx2)\tda_arbol.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+	"TDA_Arbol.h"
+	"Tools.h"
+
+1574100922 d:\spotify (farinia, zieglerx2)\tda_arbol.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574100926 d:\spotify (farinia, zieglerx2)\tools.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574260553 source:d:\spotify (farinia, zieglerx2)\tda_cancion.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+
+1574100922 source:d:\spotify (farinia, zieglerx2)\tda_listacancion.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ListaCancion.h"
+	"TDA_Cancion.h"
+
+1574261576 source:d:\spotify (farinia, zieglerx2)\tda_menu.c
+	<stdio.h>
+	<stdlib.h>
+	"gotoxy.h"
+	<windows.h>
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
+
+1574100918 d:\spotify (farinia, zieglerx2)\gotoxy.h
+
+1574259393 source:d:\spotify (farinia, zieglerx2)\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1574100924 source:d:\spotify (farinia, zieglerx2)\tda_usuario.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"TDA_Usuario.h"
+
+1574100926 source:d:\spotify (farinia, zieglerx2)\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<string.h>
+	"TDA_Cancion.h"
+	"Tools.h"
+
+1574244284 source:d:\last one proyect\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574244284 source:d:\last one proyect\main.c
+	<stdio.h>
+	<stdlib.h>
+	"windows.h"
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+
+1574244288 d:\last one proyect\tda_menu.h
+	"TDA_ADLPlaylist.h"
+
+1574244284 d:\last one proyect\tda_adlplaylist.h
+	"TDA_Usuario.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574244290 d:\last one proyect\tda_usuario.h
+
+1574244288 d:\last one proyect\tda_listacancion.h
+	"TDA_Cancion.h"
+
+1574244288 d:\last one proyect\tda_cancion.h
+
+1574244288 d:\last one proyect\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574244286 source:d:\last one proyect\tda_arbol.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+	"TDA_Arbol.h"
+	"Tools.h"
+
+1574244288 d:\last one proyect\tda_arbol.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574244292 d:\last one proyect\tools.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574244288 source:d:\last one proyect\tda_cancion.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+
+1574244288 source:d:\last one proyect\tda_listacancion.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ListaCancion.h"
+	"TDA_Cancion.h"
+
+1574264461 source:d:\last one proyect\tda_menu.c
+	<stdio.h>
+	<stdlib.h>
+	"gotoxy.h"
+	<windows.h>
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
+
+1574244284 d:\last one proyect\gotoxy.h
+
+1574244290 source:d:\last one proyect\tda_usuario.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"TDA_Usuario.h"
+
+1574244292 source:d:\last one proyect\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<string.h>
+	"TDA_Cancion.h"
+	"Tools.h"
+
+1574263671 source:d:\last one proyect\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
+
+1574263268 source:d:\last one proyect\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1574247082 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574247082 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\main.c
+	<stdio.h>
+	<stdlib.h>
+	"windows.h"
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+
+1574247084 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.h
+	"TDA_ADLPlaylist.h"
+
+1574247084 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_adlplaylist.h
+	"TDA_Usuario.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574247086 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.h
+
+1574247086 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_listacancion.h
+	"TDA_Cancion.h"
+
+1574265381 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.h
+
+1574247086 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574247082 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
+
+1574247084 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_arbol.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+	"TDA_Arbol.h"
+	"Tools.h"
+
+1574247084 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_arbol.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574247088 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tools.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_listacancion.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ListaCancion.h"
+	"TDA_Cancion.h"
+
+1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.c
+	<stdio.h>
+	<stdlib.h>
+	"gotoxy.h"
+	<windows.h>
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
+
+1574247082 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\gotoxy.h
+
+1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"TDA_Usuario.h"
+
+1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<string.h>
+	"TDA_Cancion.h"
+	"Tools.h"
+
