@@ -4,7 +4,7 @@
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
 
-const int verqueonda = 69;
+
 
 int main()
 {
@@ -14,5 +14,6 @@ int main()
          donde registra e ingresa, pero esta incompleta*/
     cargarUnUsuario();
     Cases_project(); /// SEGUIR TRABAJANDO EL MENU !
+
 
 }

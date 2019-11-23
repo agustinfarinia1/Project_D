@@ -118,7 +118,7 @@ void mostrar_archi_canciones()
     fclose(archi);
 }
 
-void bajacancion()
+void bajacancion()      /// Da de baja una funcion por ID
 {
     int idaux=0;
     int selec;

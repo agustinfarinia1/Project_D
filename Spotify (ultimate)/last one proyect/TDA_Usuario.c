@@ -22,23 +22,28 @@ int ingresarusuario(char nombarchi)
           system("cls");
           ///ingresar aqui un mensaje de beinvenida (Spotify trial)
           printf("Ingrese un nombre de usuario: ");
+          fflush(stdin);
           gets(user.nombreUsuario);
-          verificacion = retorna_id (arUsuario, user.nombreUsuario);
+          verificacion = retorna_id (arUsuario, user.nombreUsuario);    ///apenas ingresa el nombre de usuario retorna la id,
           control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           while(control_user!=1)
           {
               printf("Ingrese un usuario valido por favor: ");
+              fflush(stdin);
               gets(user.nombreUsuario);
+              verificacion = retorna_id (arUsuario, user.nombreUsuario);
               control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           }
           printf("Ingrese su contrase%ca : ",164);
+          fflush(stdin);
           gets(user.pass);
           control_pass = ver_exist_pass(arUsuario, user.pass);
           while(control_pass!=1)
           {
-              printf("Ingrese una contrase%ca valida por favor: ", 165);
+              printf("Ingrese una contrase%ca valida por favor: ", 164);
+              fflush(stdin);
               gets(user.pass);
-              control_pass=ver_exist_user(arUsuario, user.pass);
+              control_pass = ver_exist_pass(arUsuario, user.pass);
           }
 
         fclose(fichero);
@@ -62,23 +67,27 @@ int ingresar_admin(char nombarchi)               ///devuelve la id admin
           system("cls");
           ///ingresar aqui un mensaje de beinvenida (Spotify trial)
           printf("Ingrese un nombre de usuario: ");
+          fflush(stdin);
           gets(user.nombreUsuario);
           verificacion = retorna_admin_lvl(arUsuario, user.nombreUsuario);
           control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           while(control_user!=1)
           {
               printf("Ingrese un usuario valido por favor: ");
+              fflush(stdin);
               gets(user.nombreUsuario);
               control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           }
           printf("Ingrese su contrase%ca : ",164);
+          fflush(stdin);
           gets(user.pass);
           control_pass = ver_exist_pass(arUsuario, user.pass);
           while(control_pass!=1)
           {
-              printf("Ingrese una contrase%ca valida por favor: ", 165);
+              printf("Ingrese una contrase%ca valida por favor: ", 164);
+              fflush(stdin);
               gets(user.pass);
-              control_pass=ver_exist_user(arUsuario, user.pass);
+              control_pass = ver_exist_pass(arUsuario, user.pass);
           }
 
         fclose(fichero);
