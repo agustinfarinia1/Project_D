@@ -521,7 +521,7 @@
 	"TDA_ListaCancion.h"
 	"TDA_registroPlaylist.h"
 
-1574522188 c:\users\ziegl\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.h
+1574530658 c:\users\ziegl\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.h
 
 1574522188 c:\users\ziegl\documents\github\project_d\spotify (ultimate)\last one proyect\tda_listacancion.h
 	"TDA_Cancion.h"
@@ -587,7 +587,7 @@
 	<stdlib.h>
 	"TDA_registroPlaylist.h"
 
-1574522188 source:c:\users\ziegl\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.c
+1574530658 source:c:\users\ziegl\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>

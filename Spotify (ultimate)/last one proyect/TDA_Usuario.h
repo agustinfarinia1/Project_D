@@ -28,4 +28,8 @@ int buscaUltimoID();
 int versieslaprimeravez(char nombarchius);
 stUsuario buscarUsuarioEnArchivo(int idFiltro);
 
+stUsuario consultaUsuario(char filtro[]);
+void listadoUsuarios();
+
+
 #endif // TDA_USUARIO_H_INCLUDED

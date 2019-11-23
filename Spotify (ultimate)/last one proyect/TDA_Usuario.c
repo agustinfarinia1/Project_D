@@ -423,3 +423,35 @@ stUsuario buscarUsuarioEnArchivo(int idFiltro) /// PREGUNTAR ERICK SI CAMBIO PAR
     return c;
 
 }
+
+stUsuario consultaUsuario(char filtro[]) /// REALIZA LA CONSULTA DEL USUARIO BUSCANDOLO POR FILTRO DE NOMBRE
+{
+    stUsuario u;
+    int flag = 0;
+    FILE * archi = fopen(arUsuario, "rb");
+    if(archi)
+    {
+        while((flag == 0) && (fread(&u, sizeof(stUsuario), 1, archi)>0))
+        {
+            if(strcmp(u.nombreUsuario, filtro)==0)
+            {
+                 flag = 1;
+            }
+        }
+    }
+    fclose(archi);
+    return u;
+}
+void listadoUsuarios() /// FUNCION QUE MUESTRA TODOS LOS USUARIOS DISPONIBLES EN EL ARCHIVO DE USUARIOS
+{
+    stUsuario u;
+    FILE * archi = fopen(arUsuario, "rb");
+    if(archi)
+    {
+        while(fread(&u, sizeof(stUsuario), 1, archi)>0)
+        {
+            muestraUnUsuario(u);
+        }
+    }
+    fclose(archi);
+}
