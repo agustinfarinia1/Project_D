@@ -4,6 +4,8 @@
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
 
+const int verqueonda = 69;
+
 int main()
 {
     /**< Primer funcion se ejecuta, si no hay archi crea un admin y no se ejecuta mas; si existe archivo solo carga usuarios */
