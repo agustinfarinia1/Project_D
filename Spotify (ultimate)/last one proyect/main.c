@@ -4,7 +4,7 @@
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
 
-const int verqueonda = 69;
+
 
 int main()
 {
@@ -27,5 +27,6 @@ int main()
     a = consultaUsuario(nombre);
     muestraUnUsuario(a);
     listadoUsuarios();
+
 
 }
