@@ -23,6 +23,10 @@ void postOrder(nodoArbolCancion * arbol);
 
 
 /// hacer despues !!! borrarUnNodoArbol (buscarlo por idCancion)
+nodoArbolCancion * borrarUnNodoArbol(nodoArbolCancion * arbol, int idCancion);
+nodoArbolCancion * nodoMasAlaIzquierda(nodoArbolCancion * arbol);
+nodoArbolCancion * nodoMasAlaDerecha(nodoArbolCancion * arbol);
+
 
 nodoArbolCancion * buscarCancion(nodoArbolCancion * arbol, int idCancionFiltro);
 

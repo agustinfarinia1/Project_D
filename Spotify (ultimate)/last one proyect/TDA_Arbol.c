@@ -124,3 +124,72 @@ nodoArbolCancion * cargarArbolDesdeArchivo(nodoArbolCancion * arbol)        ///C
 
 }
 
+nodoArbolCancion * borrarUnNodoArbol(nodoArbolCancion * arbol, int idCancion)
+{
+    if(arbol != NULL)
+    {
+        if(idCancion == arbol->dato.idCancion)
+        {
+            if(arbol->izq != NULL)
+            {
+                nodoArbolCancion * masDer = nodoMasAlaDerecha(arbol->izq);
+                arbol->dato = masDer->dato;
+                arbol->izq = borrarUnNodoArbol(arbol->izq,masDer->dato.idCancion);
+
+            }else if(arbol->der != NULL)
+            {
+                nodoArbolCancion * masIzq = nodoMasAlaIzquierda(arbol->der);
+                arbol->dato = masIzq->dato;
+                arbol->der = borrarUnNodoArbol(arbol->der,masIzq->dato.idCancion);
+            }else
+            {
+                free(arbol);
+                arbol = NULL;
+            }
+        }
+        else if(idCancion > arbol->dato.idCancion)
+        {
+            arbol->der = borrarUnNodoArbol(arbol->der, idCancion);
+
+        }else if(idCancion < arbol->dato.idCancion)
+        {
+            arbol->izq = borrarUnNodoArbol(arbol->izq, idCancion);
+        }
+    }
+
+    return arbol;
+}
+
+nodoArbolCancion * nodoMasAlaIzquierda(nodoArbolCancion * arbol)
+{
+    nodoArbolCancion * resp = NULL;
+    if(arbol != NULL)
+    {
+        if(arbol->izq == NULL)
+        {
+            resp = arbol;
+        }else
+        {
+            resp = nodoMasAlaIzquierda(arbol->izq);
+        }
+    }
+
+    return resp;
+}
+
+nodoArbolCancion * nodoMasAlaDerecha(nodoArbolCancion * arbol)
+{
+    nodoArbolCancion * resp = NULL;
+    if(arbol != NULL)
+    {
+        if(arbol->der == NULL)
+        {
+            resp = arbol;
+        }else
+        {
+            resp = nodoMasAlaDerecha(arbol->der);
+        }
+    }
+
+    return resp;
+}

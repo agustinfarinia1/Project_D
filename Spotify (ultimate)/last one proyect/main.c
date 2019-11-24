@@ -3,6 +3,7 @@
 #include "windows.h"
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
+#include "TDA_Arbol.h"
 
 
 
@@ -18,15 +19,7 @@ int main()
 
 
    /// FUNCIONES DE CONSULTA Y LISTADO
-    stUsuario a;
-    char nombre[30];
-
-    printf("Ingrese el nombre del usuario: \n");
-    fflush(stdin);
-    gets(nombre);
-    a = consultaUsuario(nombre);
-    muestraUnUsuario(a);
-    listadoUsuarios();
+   buscarCancionPorNombre(arCancion, "vera");
 
 
 }

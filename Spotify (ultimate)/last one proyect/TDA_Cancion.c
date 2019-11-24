@@ -87,7 +87,7 @@ void mostrar_cancion (stCancion a)
     printf("Album:      %s\n", a.album);
     printf("Cancion:    %s \n", a.titulo);
     printf("Genero:     %s\n", a.genero);
-    printf("Anio:       %d\n", a.anio);
+    printf("A%co:        %d\n",164,a.anio);
     muestra_tiempo(a);
     printf("Eliminado:  %d\n", a.eliminado);
     printf("****************************************\n");
@@ -299,7 +299,7 @@ void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[])
     {
         while(fread(&cancion,sizeof(stCancion),1,archi) > 0 && flag == 0) /// RECORRE HASTA ENCONTRAR A UNA CANCION CON EL MISMO TITULO O TERMINE EL ARCHIVO
         {
-            if(strcmp(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
+            if(strcmpi(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
             {
                 flag = 1;
                 mostrar_cancion(cancion);  /// CORTA EL CICLO
