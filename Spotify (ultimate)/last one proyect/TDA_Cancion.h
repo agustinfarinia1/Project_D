@@ -29,6 +29,7 @@ int verificarExistenciaCancionEnArchivo(char nombreCancion[]);
 stCancion obtenerCancionPorNombre(char archivoCancion[],char nombreCancion[]);
 stCancion buscarCancionEnArchivo(int idFiltro);
 void barritadecarga(char nombre[]);
+void borrarUnaCancionArchivo(char archivo[], int idFiltroCancion);
 
 /**
 

@@ -412,13 +412,14 @@
 	<stdlib.h>
 	<windows.h>
 
-1574609682 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\main.c
+1574614389 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\main.c
 	<stdio.h>
 	<stdlib.h>
 	"windows.h"
 	"TDA_MENU.h"
 	"TDA_Usuario.h"
 	"TDA_Arbol.h"
+	"TDA_Cancion.h"
 
 1574247084 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.h
 	"TDA_ADLPlaylist.h"
@@ -433,7 +434,7 @@
 1574247086 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_listacancion.h
 	"TDA_Cancion.h"
 
-1574265381 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.h
+1574613978 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.h
 
 1574247086 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_registroplaylist.h
 	"TDA_ADLPlaylist.h"
@@ -443,7 +444,7 @@
 	<stdlib.h>
 	"TDA_ADLPlaylist.h"
 
-1574533788 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_arbol.c
+1574613148 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_arbol.c
 	<stdlib.h>
 	<string.h>
 	<stdio.h>
@@ -451,6 +452,7 @@
 	<time.h>
 	"TDA_Cancion.h"
 	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
 	"TDA_Arbol.h"
 	"Tools.h"
 
@@ -469,7 +471,7 @@
 	"TDA_ListaCancion.h"
 	"TDA_Cancion.h"
 
-1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.c
+1574614627 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.c
 	<stdio.h>
 	<stdlib.h>
 	"gotoxy.h"
@@ -478,6 +480,8 @@
 	"TDA_Usuario.h"
 	"TDA_Cancion.h"
 	"TDA_ADLPlaylist.h"
+	"TDA_Arbol.h"
+	"TDA_registroPlaylist.h"
 
 1574247082 c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\gotoxy.h
 
@@ -493,7 +497,7 @@
 	<windows.h>
 	"TDA_Usuario.h"
 
-1574247086 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tools.c
+1574614865 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tools.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -604,7 +608,7 @@
 	"TDA_Cancion.h"
 	"Tools.h"
 
-1574609820 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.c
+1574615479 source:c:\users\leo19\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.c
 	<stdlib.h>
 	<string.h>
 	<stdio.h>

@@ -5,10 +5,11 @@
 #include <time.h>
 #include "TDA_Cancion.h"
 #include "TDA_ListaCancion.h"
+#include "TDA_registroPlaylist.h"
 #include "TDA_Arbol.h"
 #include "Tools.h"
 
-const int DIM = 109;                ///dim responde a la cantidad de canciones cargadas en el archivo
+const int DIM = ultimaid() + 1;                ///dim responde a la cantidad de canciones cargadas en el archivo
 
 nodoArbolCancion * inicArbol()
 {
@@ -108,7 +109,6 @@ nodoArbolCancion * cargarArbolDesdeArchivo(nodoArbolCancion * arbol)        ///C
     stCancion c;
 
     int validos = mezclarCanciones(arregloDesordenado, arregloInf, arregloSup, DIM);
-    mostrarArreglo(arregloDesordenado, validos);
 
 
     while(i < validos)

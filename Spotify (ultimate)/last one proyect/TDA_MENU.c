@@ -6,6 +6,8 @@
 #include "TDA_Usuario.h"
 #include "TDA_Cancion.h"
 #include "TDA_ADLPlaylist.h"
+#include "TDA_Arbol.h"
+#include "TDA_registroPlaylist.h"
 
 const int MARGEN = 3;
 
@@ -42,8 +44,9 @@ void Screen_admin_menu()
     centrar_texto ("(3)Modificar Datos de Usuario",7);
     centrar_texto ("(4)Cargar Canciones al Archivo",9);
     centrar_texto ("(5)Modificar datos de Canciones",11);
-    centrar_texto ("(ESC)SALIR",13);
-    centrar_texto( "Introduzca opcion : ", 15);
+    centrar_texto ("(6)Borrar una Cancion del Archivo", 13);
+    centrar_texto ("(ESC)SALIR",15);
+    centrar_texto( "Introduzca opcion : ", 17);
 }
 
 void Screen_Playlist ()
@@ -138,7 +141,9 @@ void Case_admin()
     char opc;
     char nombre[20];
     int verificacion=0;
+
     verificacion= ingresar_admin(arUsuario);
+    nodoArbolCancion * arbol = inicLista();
 
     if (verificacion == 1)
     {
@@ -174,6 +179,22 @@ void Case_admin()
                          modificar_datos_cancion(arCancion);
                          break;
                 case 54:
+
+                        system("cls");
+                        arbol = cargarArbolDesdeArchivo(arbol);
+                        int idFiltro = 0;
+                        printf("Ingrese el ID de la Cancion que desea eliminar: \n");
+                        scanf("%d", &idFiltro);
+
+                        arbol = borrarUnNodoArbol(arbol, idFiltro);
+
+                        borrarUnaCancionArchivo(arCancion, idFiltro);
+                        borrarUnaCancionArchivo(arPlaylist, idFiltro);
+                        mostrar_archi_canciones();
+                        system("pause");
+
+                         break;
+                case 55:
                          exit(0);
                          break;
              }

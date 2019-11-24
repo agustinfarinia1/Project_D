@@ -182,8 +182,11 @@ int archivoToADL(celdaPlaylist adl[])
         while(fread(&registro,sizeof(registroPlaylist),1,archi) > 0)
         {
                 cancion = buscarCancionEnArchivo(registro.idCancion);
-                usuario = buscarUsuarioEnArchivo(registro.idUsuario);
-                validos = guardarArreglo(adl,usuario,cancion,validos);
+                if(cancion.eliminado == 0)
+                {
+                    usuario = buscarUsuarioEnArchivo(registro.idUsuario);
+                    validos = guardarArreglo(adl,usuario,cancion,validos);
+                }
         }
     }
     fclose(archi);

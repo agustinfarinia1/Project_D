@@ -112,7 +112,10 @@ void mostrar_archi_canciones()
     {
         while(fread(&a, sizeof(stCancion), 1, archi) > 0)
         {
-            mostrar_cancion(a);
+            if(a.eliminado == 0)
+            {
+                mostrar_cancion(a);
+            }
         }
     }
     fclose(archi);
@@ -352,7 +355,7 @@ stCancion obtenerCancionPorNombre(char nombreArchi[],char nombreCancion[])
     {
         while((flag == 0)&&(fread(&cancion,sizeof(stCancion),1,archi) > 0)) /// RECORRE HASTA ENCONTRAR A UNA CANCION CON EL MISMO TITULO O TERMINE EL ARCHIVO
         {
-            if(strcmp(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
+            if(strcmpi(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
             {
                 flag = 1;
             }
@@ -364,4 +367,26 @@ stCancion obtenerCancionPorNombre(char nombreArchi[],char nombreCancion[])
     }
     fclose(archi);
     return cancion;
+}
+
+
+void borrarUnaCancionArchivo(char archivo[], int idFiltroCancion)
+{
+    stCancion c;
+    int flag = 0;
+    FILE * archi = fopen(archivo, "r+b");
+    if(archi){
+
+        while((flag == 0) && (fread(&c, sizeof(stCancion), 1, archi)>0))
+        {
+            if(c.idCancion == idFiltroCancion)
+            {
+                fseek(archi, sizeof(stCancion)*(-1), SEEK_CUR);
+                c.eliminado = 1;
+                fwrite(&c, sizeof(stCancion), 1, archi);
+                flag = 1;
+            }
+        }
+    }
+    fclose(archi);
 }

@@ -22,18 +22,23 @@ int cargarArregloDesdeArchivo(int a[], int DIM) /// CARGAMOS UN ARREGLO DE IDS, 
 {
     stCancion c;
     int i = 0;
+    int j = 0;
     FILE * archi = fopen(arCancion, "rb");
     if(archi != NULL)
     {
         while(((i < DIM)) && fread(&c, sizeof(stCancion), 1, archi)>0)
         {
-            a[i] = c.idCancion;
+            if(c.eliminado == 0)
+            {
+                a[j] = c.idCancion;
+                j++;
+            }
             i++;
         }
     }
     fclose(archi);
 
-    return i;
+    return j;
 }
 
 int cargarArregloMitadInferior(int arregloCanciones[], int validos, int arregloInf[], int DIM)

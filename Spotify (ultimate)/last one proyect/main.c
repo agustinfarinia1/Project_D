@@ -4,6 +4,7 @@
 #include "TDA_MENU.h"
 #include "TDA_Usuario.h"
 #include "TDA_Arbol.h"
+#include "TDA_Cancion.h"
 
 
 
@@ -15,11 +16,11 @@ int main()
     /**< Funcion auxiliar para comprobar lo anterior, ya que aparte de verificar existencia pasa al men principal (cases_project)
          donde registra e ingresa, pero esta incompleta*/
     //cargarUnUsuario();
-   //Cases_project(); /// SEGUIR TRABAJANDO EL MENU !
+   Cases_project(); /// SEGUIR TRABAJANDO EL MENU !
 
 
    /// FUNCIONES DE CONSULTA Y LISTADO
-   buscarCancionPorNombre(arCancion, "vera");
+
 
 
 }
