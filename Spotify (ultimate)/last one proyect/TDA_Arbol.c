@@ -9,7 +9,7 @@
 #include "TDA_Arbol.h"
 #include "Tools.h"
 
-const int DIM = ultimaid() + 1;                ///dim responde a la cantidad de canciones cargadas en el archivo
+const int DIM = 100;                ///dim responde a la cantidad de canciones cargadas en el archivo
 
 nodoArbolCancion * inicArbol()
 {
@@ -97,9 +97,10 @@ nodoArbolCancion * buscarCancion(nodoArbolCancion * arbol, int idCancionFiltro)
         return rta;
 }
 
-nodoArbolCancion * cargarArbolDesdeArchivo(nodoArbolCancion * arbol)        ///Carga el Arbol bien mezclado
+nodoArbolCancion * cargarArbolDesdeArchivo(nodoArbolCancion * arbol, int DIM)        ///Carga el Arbol bien mezclado
 {
     int i = 0;
+    DIM = ultimaid() + 1;
     nodoArbolCancion * nuevo = inicArbol();
 
     int arregloDesordenado[DIM];

@@ -76,6 +76,7 @@ int ingresar_admin(char nombarchi)               ///devuelve la id admin
               printf("Ingrese un usuario valido por favor: ");
               fflush(stdin);
               gets(user.nombreUsuario);
+              verificacion = retorna_admin_lvl(arUsuario, user.nombreUsuario);
               control_user=ver_exist_user(arUsuario, user.nombreUsuario);
           }
           printf("Ingrese su contrase%ca : ",164);
@@ -442,7 +443,7 @@ stUsuario consultaUsuario(char filtro[]) /// REALIZA LA CONSULTA DEL USUARIO BUS
     {
         while((flag == 0) && (fread(&u, sizeof(stUsuario), 1, archi)>0))
         {
-            if(strcmp(u.nombreUsuario, filtro)==0)
+            if(strcmpi(u.nombreUsuario, filtro)==0)
             {
                  flag = 1;
             }

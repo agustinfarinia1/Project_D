@@ -14,24 +14,24 @@ void alta_canciones()
     int anio = 1800;
     srand(time(NULL));
     do{
-       char Artista[] = {"La Renga"};
-        char Album[] = {"La Esquina del Infinito"};
-        char Genero[] = {"Rock"};
+       char Artista[30];
+        char Album[30];
+        char Genero[30];
         printf("Cargando Nueva Cancion....\n\n");
         a.idCancion = ultimaid(arCancion) + 1;
-        //printf("Ingrese el nombre del Artista: ");
+        printf("Ingrese el nombre del Artista: ");
         fflush(stdin);
         strcpy(a.artista,Artista);
         printf("\nIngrese el nombre de la Cancion: ");
         fflush(stdin);
         gets(&a.titulo);
-        //printf("\nIngrese el nombre del Album: ");
+        printf("\nIngrese el nombre del Album: ");
         fflush(stdin);
         strcpy(a.album , Album);
-        //printf("\nIngrese el Genero Musical: ");
+        printf("\nIngrese el Genero Musical: ");
         fflush(stdin);
         strcpy(a.genero, Genero);
-        /*
+
         printf("\nDesea agregar algun comentario ? (s/n): ");
         fflush(stdin);
         scanf("%c", &opc);
@@ -41,7 +41,7 @@ void alta_canciones()
         printf("\nIngrese el comentario aqui: ");
         gets(&a.comentario);
         }
-        */
+
         fflush(stdin);
         a.anio = 2000;
         fflush(stdin);
@@ -306,7 +306,6 @@ void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[])
             {
                 flag = 1;
                 mostrar_cancion(cancion);  /// CORTA EL CICLO
-                Sleep(900);
             }
         }
         if(flag == 0)

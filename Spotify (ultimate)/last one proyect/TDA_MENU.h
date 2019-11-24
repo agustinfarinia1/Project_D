@@ -14,5 +14,6 @@ void centrar_texto(const char *texto, int y);
 void dibujarrectangulo();
 void dibujarlinea(char c, int n);
 void Screen_admin_menu ();
+void Screen_SubMenu_Administracion_Canciones();
 void Screen_usuario_playlist(int idUsuario,celdaPlaylist arregloLista[],int validos,int dim);
 #endif // TDA_MENU_H_INCLUDED

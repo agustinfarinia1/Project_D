@@ -42,9 +42,9 @@ void Screen_admin_menu()
     centrar_texto ("(1)Dar de Alta un Usuario",3);
     centrar_texto ("(2)Dar de Baja un Usuario",5);
     centrar_texto ("(3)Modificar Datos de Usuario",7);
-    centrar_texto ("(4)Cargar Canciones al Archivo",9);
-    centrar_texto ("(5)Modificar datos de Canciones",11);
-    centrar_texto ("(6)Borrar una Cancion del Archivo", 13);
+    centrar_texto ("(4)Consulta Datos de Usuario",9);
+    centrar_texto ("(5)Consultar Listado de Usuarios",11);
+    centrar_texto ("(6)Sub-Menu Administrar Canciones",13);
     centrar_texto ("(ESC)SALIR",15);
     centrar_texto( "Introduzca opcion : ", 17);
 }
@@ -72,6 +72,21 @@ void textoMenuInicio()
     centrar_texto("2. Ingresar al sistema de Usuario.",6);
     centrar_texto("3. Ingresar al sistema Admin.",8);
     centrar_texto("0 para salir.\n\n\t",12);
+}
+
+void Screen_SubMenu_Administracion_Canciones()
+{
+    system("CLS");
+    dibujarrectangulo();
+    hidecursor(0);
+    centrar_texto("<<Menu Para Administrar Canciones>>",1);
+    centrar_texto("1. Alta Cancion en Archivo",4);
+    centrar_texto("2. Baja Cancion en Archivo.",6);
+    centrar_texto("3. Modificar Cancion en Archivo.",8);
+    centrar_texto("4. Buscar Cancion en Archivo.",10);
+    centrar_texto("5. Mostrar Listado de Canciones en Archivo.",12);
+    centrar_texto("6. Volver Atras.",14);
+    centrar_texto("0 para salir.\n\n\t",18);
 }
 
 void Case_user()
@@ -143,12 +158,12 @@ void Case_admin()
     int verificacion=0;
 
     verificacion= ingresar_admin(arUsuario);
-    nodoArbolCancion * arbol = inicLista();
+
 
     if (verificacion == 1)
     {
+        printf("INGRESO EXITOSO\n\n");
         do{
-             printf("INGRESO EXITOSO\n\n");
              Sleep(1000);
              system("CLS");
              Screen_admin_menu();
@@ -156,6 +171,7 @@ void Case_admin()
              switch (opc)
              {
                 case 49: /**< Funcion auxiliar que si se lo quiere registra un usuario */
+                         system("CLS");
                          cargarUnUsuario();
                          break;
                 case 50: /**< Da de baja un usuario modificando user.eliminado = 1 */
@@ -166,34 +182,27 @@ void Case_admin()
                          printf("lo elimino");
                          break;
                 case 51: /**< Modifica los datos del usuario eligiendo el campo */
+                         system("cls");
                          printf("ingrese el usuario a Modificar.\n");
                          gets(nombre);
                          modificacionUsuario(nombre);
                          break;
-                case 52: /**< Carga canciones al archivo tantas como quiera el administrador */
+                case 52: /**< Consulta un Usuario  */
                          system("cls");
-                         system("color 8F");
-                         alta_canciones();
+                         printf("Ingrese el Nombre del Usuario a Buscar.\n");
+                         fflush(stdin);
+                         gets(nombre);
+                         a = consultaUsuario(nombre);
+                         muestraUnUsuario(a);
+                         system("pause")
                          break;
-                case 53: /**< Modifica los datos de Canciones por campo */
-                         modificar_datos_cancion(arCancion);
-                         break;
-                case 54:
-
-                        system("cls");
-                        arbol = cargarArbolDesdeArchivo(arbol);
-                        int idFiltro = 0;
-                        printf("Ingrese el ID de la Cancion que desea eliminar: \n");
-                        scanf("%d", &idFiltro);
-
-                        arbol = borrarUnNodoArbol(arbol, idFiltro);
-
-                        borrarUnaCancionArchivo(arCancion, idFiltro);
-                        borrarUnaCancionArchivo(arPlaylist, idFiltro);
-                        mostrar_archi_canciones();
-                        system("pause");
+                case 53: /**< Muestra un listado de usuarios Ordenado */
 
                          break;
+                case 54: /**<  Sub-Menu Administración de Canciones */
+                         system("cls");
+                         Case_administrarcanciones();
+
                 case 55:
                          exit(0);
                          break;
@@ -236,6 +245,92 @@ void Cases_project()
         }
     }while(opcion!=27);
 }
+
+void Case_administrarcanciones()     /// Switch menu que administra las canciones en un archivo
+{
+    system("color 8F");
+    int opcion;
+    int id=0;
+    char nombre[30];
+    int f = 0;
+    stCancion c;
+    nodoArbolCancion * arbol = inicLista();
+
+    /*
+    centrar_texto("1. Alta Cancion en Archivo",4);
+    centrar_texto("2. Baja Cancion en Archivo.",6);
+    centrar_texto("4. Modificar Cancion en Archivo.",8);
+    centrar_texto("5. Buscar Cancion en Archivo.",10);
+    centrar_texto("6. Mostrar Listado de Canciones en Archivo.",12);
+    centrar_texto("7. Volver Atras.",14);
+    centrar_texto("0 para salir.\n\n\t",18);
+    */
+
+    do
+    {
+        Screen_SubMenu_Administracion_Canciones();
+        opcion=getch();
+        switch(opcion)
+        {
+            case 49:    /**< Carga canciones al archivo tantas como quiera el administrador */
+                    system("cls");
+                    system("color 8F");
+                    alta_canciones();
+                    break;
+            case 50:    /**< Da de Baja una Cancion en Archivo, Playlist o Arbol */
+                        system("cls");
+                        arbol = cargarArbolDesdeArchivo(arbol);
+                        int idFiltro = 0;
+                        printf("Ingrese el ID de la Cancion que desea eliminar: \n");
+                        scanf("%d", &idFiltro);
+
+                        arbol = borrarUnNodoArbol(arbol, idFiltro);
+
+                        borrarUnaCancionArchivo(arCancion, idFiltro);
+                        borrarUnaCancionArchivo(arPlaylist, idFiltro);
+                        mostrar_archi_canciones();
+                        system("pause");
+                    break;
+            case 51: /**< Modifica los datos de Canciones por campo */
+                    modificar_datos_cancion(arCancion);
+                    break;
+            case 52:        ///Consulta Cancion
+                    printf("Desea buscar la cancion por:  (1)Nombre o (2)ID");
+                    printf("\n Ingrese la opcion: ");
+                    scanf("%d", &opcion);
+                    while (opcion > 0 && f == 0)
+                    {
+                        if (opcion == 1)
+                        {
+                            printf("Ingrese el Nombre de la Cancion");
+                            gets(nombre);
+                            buscarCancionPorNombre(arCancion, nombre);
+                            f = 1;
+                        }
+                        if (opcion == 2)
+                        {
+                            printf("Ingrese el ID de la Cancion");
+                            scanf("%d", &id);
+                            c = buscarCancionEnArchivo(id);
+                            mostrar_cancion(c);
+                            f = 1;
+                        }
+                    }
+                    break;
+            case 53:       ///Listados de Canciones
+
+                    break;
+            case 54:        ///Volver Atras
+                    Case_admin();
+                    break;
+            case 55:        ///Salir
+                    exit(0);
+                    break;
+        }
+    }while(opcion!=27);
+}
+
+
 
 void dibujarlinea(char c, int n)
 {
