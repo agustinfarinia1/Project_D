@@ -10,7 +10,7 @@
 void alta_canciones()
 {
     stCancion a;
-    char op;
+    char opc;
     int anio = 1800;
     srand(time(NULL));
     do{
@@ -57,9 +57,9 @@ void alta_canciones()
 
         printf("PRESIONE ESC PARA SALIR... \n");
 
-        op = getch();
+        opc = getch();
 
-    }while(op!=27);
+    }while(opc!=27);
 }
 
 int ultimaid()
@@ -409,6 +409,7 @@ int cargarArregloCancionDesdeArchivo(stCancion arreglo[],int dimension)
 }
 void mostrarArregloCancion(stCancion arreglo[],int validos)
 {
+    system("cls");
     int i = 0;
     while(i < validos)
     {
@@ -464,4 +465,26 @@ void insertarCancion(stCancion arreglo[],int posicion,stCancion dato)
         i--;
     }
     arreglo[i + 1] = dato;
+}
+
+void top10 (char nombrearchi[])
+{
+    stCancion a;
+    FILE * archi = fopen(arCancion, "rb");
+    int ranid;
+    int i=0;
+    if (archi != NULL)
+    {
+        while(fread(&a, sizeof(stCancion), 1, archi) > 0 && i<10)
+        {
+            if(a.eliminado == 0)
+            {
+                ranid = rand()% 109;
+                a=buscarCancionEnArchivo(ranid);
+                mostrar_cancion(a);
+                i++;
+            }
+        }
+    }
+    fclose(archi);
 }

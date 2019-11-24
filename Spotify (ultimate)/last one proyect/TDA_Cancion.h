@@ -19,6 +19,7 @@ void buscarCancionPorNombre(char nombreArchi[],char nombreCancion[]);
 void reproducir(char nombreArchi[]);
 void alta_canciones();
 int ultimaid();
+void top10 (char nombrearchi[]);
 void mostrar_cancion (stCancion a);
 void guardarCancion(stCancion a);
 void mostrar_archi_canciones();

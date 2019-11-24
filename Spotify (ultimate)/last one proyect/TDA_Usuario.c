@@ -485,6 +485,7 @@ int cargarArregloUsuarioDesdeArchivo(stUsuario arreglo[],int dimension)
 }
 void mostrarArregloUsuario(stUsuario arreglo[],int validos)
 {
+    system("cls");
     int i = 0;
     while(i < validos)
     {

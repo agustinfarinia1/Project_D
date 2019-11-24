@@ -19,19 +19,24 @@ void VerificarExistencia()
     }
     else
     {
+        printf("\n\nPara empezar necesitara registrar un administrador\n\n");
+        system("pause");
         cargarUnUsuario();
     }
 }
 
 void Screen_user_menu()
 {
-            printf("\n\n");
-            printf ("\n (1)Ver mi Perfil");
-            printf ("\n (2)Ver Top 10 de Canciones recomendadas");
-            printf ("\n (3)Escuchar una Cancion");
-            printf ("\n (4)Ingresar al Menu Playlist");
-            printf ("\n (ESC)SALIR");
-            printf( "\n\Introduzca opci%cn : ", 162);
+    system("cls");
+    hidecursor(0);
+    dibujarrectangulo();
+    centrar_texto ("<<<Menu de Usuario>>>",1);
+    centrar_texto (" (1)Ver mi Perfil",3);
+    centrar_texto (" (2)Ver Top 10 de Canciones recomendadas",5);
+    centrar_texto (" (3)Escuchar una Cancion",7);
+    centrar_texto (" (4)Ingresar al Menu Playlist",9);
+    centrar_texto (" (ESC)SALIR",11);
+    centrar_texto( " Introduzca opcion : ", 14);
 }
 
 void Screen_admin_menu()
@@ -51,15 +56,17 @@ void Screen_admin_menu()
 
 void Screen_Playlist ()
 {
-
-            printf("\n\n");
-            printf ("\n (1)Crear Playlist");
-            printf ("\n (2)Agregar Cancion a la Playlist");
-            printf ("\n (3)Ver todas mis Playlist");
-            printf ("\n (4)Borrar Cancion de Playlist");
-            printf ("\n (5)Escuchar Playlist");
-            printf ("\n (ESC)SALIR");
-            printf( "\n\Introduzca opci%cn : ", 162);
+    system("cls");
+    hidecursor(0);
+    dibujarrectangulo();
+    centrar_texto("<<<Menu Playlist>>>",1);
+    centrar_texto (" (1)Crear Playlist",3);
+    centrar_texto (" (2)Agregar Cancion a la Playlist",5);
+    centrar_texto (" (3)Ver todas mis Playlist",7);
+    centrar_texto (" (4)Borrar Cancion de Playlist",9);
+    centrar_texto (" (5)Escuchar Playlist",11);
+    centrar_texto (" (ESC)SALIR",13);
+    centrar_texto( "  Introduzca opcion : ",15);
 }
 
 void textoMenuInicio()
@@ -126,7 +133,7 @@ void Case_user()
                     break;
                 case 50: /**< Muestra Top 10 de Canciones */
                     system("cls");
-                    mostrar_archi_canciones();
+                    top10 (arCancion);
                     system("pause");
                 break;
                 case 51: /**< Escucha una cancion buscada */
@@ -156,7 +163,6 @@ void Case_admin()
     char opc;
     char nombre[20];
     int verificacion=0;
-
     verificacion= ingresar_admin(arUsuario);
 
 
@@ -167,6 +173,9 @@ void Case_admin()
              Sleep(1000);
              system("CLS");
              Screen_admin_menu();
+             int dimArregloUsuario = buscaUltimoID() + 1;
+             stCancion arregloUsuarios[dimArregloUsuario];
+             int validosUsuarios = cargarArregloUsuarioDesdeArchivo(arregloUsuarios,dimArregloUsuario);
              opc = getch();
              switch (opc)
              {
@@ -194,10 +203,12 @@ void Case_admin()
                          gets(nombre);
                          a = consultaUsuario(nombre);
                          muestraUnUsuario(a);
-                         system("pause")
+                         system("pause");
                          break;
                 case 53: /**< Muestra un listado de usuarios Ordenado */
-
+                        ordenarArregloUsuario(arregloUsuarios,validosUsuarios);
+                        mostrarArregloUsuario(arregloUsuarios,validosUsuarios);
+                        system("pause");
                          break;
                 case 54: /**<  Sub-Menu Administración de Canciones */
                          system("cls");
@@ -256,20 +267,14 @@ void Case_administrarcanciones()     /// Switch menu que administra las cancione
     stCancion c;
     nodoArbolCancion * arbol = inicLista();
 
-    /*
-    centrar_texto("1. Alta Cancion en Archivo",4);
-    centrar_texto("2. Baja Cancion en Archivo.",6);
-    centrar_texto("4. Modificar Cancion en Archivo.",8);
-    centrar_texto("5. Buscar Cancion en Archivo.",10);
-    centrar_texto("6. Mostrar Listado de Canciones en Archivo.",12);
-    centrar_texto("7. Volver Atras.",14);
-    centrar_texto("0 para salir.\n\n\t",18);
-    */
-
     do
     {
         Screen_SubMenu_Administracion_Canciones();
-        opcion=getch();
+        int dimArregloCancion = ultimaid() + 1;
+        stCancion arregloCancion[dimArregloCancion];
+        int validosCancion = cargarArregloCancionDesdeArchivo(arregloCancion,dimArregloCancion);
+        int op = -1;
+        opcion = getch();
         switch(opcion)
         {
             case 49:    /**< Carga canciones al archivo tantas como quiera el administrador */
@@ -295,30 +300,53 @@ void Case_administrarcanciones()     /// Switch menu que administra las cancione
                     modificar_datos_cancion(arCancion);
                     break;
             case 52:        ///Consulta Cancion
-                    printf("Desea buscar la cancion por:  (1)Nombre o (2)ID");
-                    printf("\n Ingrese la opcion: ");
-                    scanf("%d", &opcion);
-                    while (opcion > 0 && f == 0)
+                    do
                     {
-                        if (opcion == 1)
+                        system("cls");
+                        printf("Desea buscar la cancion por:  (1)Nombre o (2)ID");
+                        printf("\nIngrese la opcion: ");
+                        scanf("%d", &op);
+                        if (op == 1)
                         {
-                            printf("Ingrese el Nombre de la Cancion");
+                            printf("Ingrese el Nombre de la Cancion: ");
+                            fflush(stdin);
                             gets(nombre);
+                            printf("\n");
                             buscarCancionPorNombre(arCancion, nombre);
                             f = 1;
                         }
-                        if (opcion == 2)
+                        if (op == 2)
                         {
-                            printf("Ingrese el ID de la Cancion");
+                            printf("Ingrese el ID de la Cancion: ");
                             scanf("%d", &id);
                             c = buscarCancionEnArchivo(id);
+                            printf("\n");
                             mostrar_cancion(c);
                             f = 1;
                         }
-                    }
+                    }while(op > 0 && f == 0);
+                    system("pause");
                     break;
             case 53:       ///Listados de Canciones
-
+                    do
+                    {
+                        system("cls");
+                        printf("Desea ordenar la cancion por:  (1)Titulo o (2)Genero");
+                        printf("\nIngrese la opcion: ");
+                        scanf("%d", &op);
+                        if (op == 1)    // POR TITULO()
+                        {
+                            ordenarArregloPorSeleccionCancion(arregloCancion,validosCancion);
+                            f = 1;
+                        }
+                        if (op == 2)    // POR GENERO()
+                        {
+                            ordenarcionPorInsercionCancion(arregloCancion,validosCancion);
+                            f = 1;
+                        }
+                    }while(op > 0 && f == 0);
+                    mostrarArregloCancion(arregloCancion,validosCancion);
+                    system("pause");
                     break;
             case 54:        ///Volver Atras
                     Case_admin();
@@ -410,7 +438,8 @@ void Screen_usuario_playlist(int idUsuario,celdaPlaylist arregloLista[],int vali
                         mostrarArregloLista(arregloLista, validos);
                         system("pause");
                 break;
-                case 52:
+                case 52: /**< Borrar una cancion de la playlist */
+
                 break;
                 case 53:
                     system("cls");
