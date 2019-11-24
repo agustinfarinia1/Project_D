@@ -465,3 +465,60 @@ void listadoUsuarios() /// FUNCION QUE MUESTRA TODOS LOS USUARIOS DISPONIBLES EN
     }
     fclose(archi);
 }
+int cargarArregloUsuarioDesdeArchivo(stUsuario arreglo[],int dimension)
+{
+    int i = 0;
+    stUsuario usuario;
+    FILE * archi = fopen(arUsuario,"rb");
+    if(archi != NULL)
+    {
+        while((i < dimension)&&(fread(&usuario,sizeof(stUsuario),1,archi) > 0))
+        {
+            if(usuario.eliminado == 0)
+            {
+                arreglo[i] = usuario;
+                i++;
+            }
+        }
+    }
+    return i;
+}
+void mostrarArregloUsuario(stUsuario arreglo[],int validos)
+{
+    int i = 0;
+    while(i < validos)
+    {
+        muestraUnUsuario(arreglo[i]);
+        i++;
+    }
+}
+void ordenarArregloUsuario(stUsuario arreglo[],int validos)  /// ORDENA EL ARREGLO POR NOMBRE DE USUARIO
+{
+    int posMenor;
+    int i = 0;
+    stUsuario aux;
+    while(i <validos)
+    {
+        posMenor = posicion_menorUsuario(arreglo,i,validos);
+        aux = arreglo[posMenor];
+        arreglo[posMenor] = arreglo[i];
+        arreglo[i]= aux;
+        i++;
+    }
+}
+int posicion_menorUsuario(stUsuario arreglo[],int posicion,int validos)
+{
+    stUsuario menor = arreglo[posicion];
+    int posMenor = posicion;
+    int rango = posicion + 1;
+    while(rango < validos)
+    {
+        if(strcmpi(menor.nombreUsuario,arreglo[rango].nombreUsuario) > 0)
+        {
+            menor = arreglo[rango];
+            posMenor = rango;
+        }
+        rango++;
+    }
+    return posMenor;
+}

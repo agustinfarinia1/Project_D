@@ -31,5 +31,9 @@ stUsuario buscarUsuarioEnArchivo(int idFiltro);
 stUsuario consultaUsuario(char filtro[]);
 void listadoUsuarios();
 
+int cargarArregloUsuarioDesdeArchivo(stUsuario arreglo[],int dimension);
+void mostrarArregloUsuario(stUsuario arreglo[],int validos);
+void ordenarArregloUsuario(stUsuario arreglo[],int validos);  /// ORDENA EL ARREGLO POR NOMBRE DE USUARIO
+int posicion_menorUsuario(stUsuario arreglo[],int posicion,int validos);
 
 #endif // TDA_USUARIO_H_INCLUDED
