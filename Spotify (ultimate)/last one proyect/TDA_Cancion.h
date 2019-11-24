@@ -31,6 +31,14 @@ stCancion buscarCancionEnArchivo(int idFiltro);
 void barritadecarga(char nombre[]);
 void borrarUnaCancionArchivo(char archivo[], int idFiltroCancion);
 
+int cargarArregloCancionDesdeArchivo(stCancion arreglo[],int dimension);
+void mostrarArregloCancion(stCancion arreglo[],int validos);
+/// ORDENACION POR SELECCION ///
+void ordenarArregloPorSeleccionCancion(stCancion arreglo[],int validos);    /// CON TITULOS
+int posicion_menorCancion(stCancion arreglo[],int posicion,int validos);
+/// ORDENACION POR INSERCION ///
+void ordenarcionPorInsercionCancion(stCancion arreglo[],int validos);   /// CON GENEROS
+void insertarCancion(stCancion arreglo[],int posicion,stCancion dato);
 /**
 
 

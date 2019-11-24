@@ -390,3 +390,79 @@ void borrarUnaCancionArchivo(char archivo[], int idFiltroCancion)
     }
     fclose(archi);
 }
+int cargarArregloCancionDesdeArchivo(stCancion arreglo[],int dimension)
+{
+    int i = 0;
+    stCancion cancion;
+    FILE * archi = fopen(arCancion,"rb");
+    if(archi != NULL)
+    {
+        while((i < dimension)&&(fread(&cancion,sizeof(stCancion),1,archi) > 0))
+        {
+            if(cancion.eliminado == 0)
+            {
+                arreglo[i] = cancion;
+                i++;
+            }
+        }
+    }
+    return i;
+}
+void mostrarArregloCancion(stCancion arreglo[],int validos)
+{
+    int i = 0;
+    while(i < validos)
+    {
+        mostrar_cancion(arreglo[i]);
+        i++;
+    }
+}
+void ordenarArregloPorSeleccionCancion(stCancion arreglo[],int validos)  /// ORDEANA EL ARREGLO POR TITULO DE CANCION
+{
+    int posMenor;
+    int i = 0;
+    stCancion aux;
+    while(i <validos)
+    {
+        posMenor = posicion_menorCancion(arreglo,i,validos);
+        aux = arreglo[posMenor];
+        arreglo[posMenor] = arreglo[i];
+        arreglo[i]= aux;
+        i++;
+    }
+}
+int posicion_menorCancion(stCancion arreglo[],int posicion,int validos)
+{
+    stCancion menor = arreglo[posicion];
+    int posMenor = posicion;
+    int rango = posicion + 1;
+    while(rango < validos)
+    {
+        if(strcmpi(menor.titulo,arreglo[rango].titulo) > 0)
+        {
+            menor = arreglo[rango];
+            posMenor = rango;
+        }
+        rango++;
+    }
+    return posMenor;
+}
+void ordenarcionPorInsercionCancion(stCancion arreglo[],int validos)
+{
+    int posicion = 0;
+    while(posicion < validos - 1)
+    {
+        insertarCancion(arreglo,posicion,arreglo[posicion + 1]);
+        posicion++;
+    }
+}
+void insertarCancion(stCancion arreglo[],int posicion,stCancion dato)
+{
+    int i = posicion;
+    while((i >= 0 )&&(strcmpi(dato.genero,arreglo[i].genero) < 0))
+    {
+        arreglo[i + 1] = arreglo[i];
+        i--;
+    }
+    arreglo[i + 1] = dato;
+}
