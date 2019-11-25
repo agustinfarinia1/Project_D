@@ -53,3 +53,26 @@ int verificarExistenciaRegistroEnArchivo(registroPlaylist registro)
     }
     return respuesta;
 }
+void eliminarRegistroPlaylist(int idUsuario,int idCancion)
+{
+    registroPlaylist registro;
+    int flag = 0;
+    FILE * archi = fopen(arPlaylist,"r+b");
+    if(archi != NULL)
+    {
+        while((flag == 0)&&(fread(&registro,sizeof(registroPlaylist),1,archi) > 0))
+        {
+            if(registro.idUsuario == idUsuario)
+            {
+                if(registro.idCancion == idCancion)
+                {
+                    fseek(archi, sizeof(registroPlaylist)*(-1), SEEK_CUR);
+                    registro.eliminado = 1;
+                    fwrite(&registro,sizeof(registroPlaylist),1,archi);
+                    flag = 1;
+                }
+            }
+        }
+    }
+    fclose(archi);
+}

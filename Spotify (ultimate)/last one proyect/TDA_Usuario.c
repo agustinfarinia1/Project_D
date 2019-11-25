@@ -415,22 +415,23 @@ int retorna_admin_lvl (char nombrearchi, char name[])
 stUsuario buscarUsuarioEnArchivo(int idFiltro) /// PREGUNTAR ERICK SI CAMBIO PARA QUE EL ID ARRANQUE EN 0
 {
     stUsuario c;
-
+    stUsuario usuario;
     int flag = 0;
     FILE * archi = fopen(arUsuario, "rb");
     if(archi != NULL)
     {
-        while(fread(&c, sizeof(stUsuario), 1, archi)>0 && (flag == 0))
+        while((flag == 0)&&(fread(&c, sizeof(stUsuario), 1, archi)>0))
         {
             if(c.idUsuario == idFiltro)
             {
+                usuario = c;
                 flag = 1;
             }
         }
     }
     fclose(archi);
 
-    return c;
+    return usuario;
 
 }
 

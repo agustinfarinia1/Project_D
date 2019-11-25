@@ -99,8 +99,9 @@ void mostrarArregloLista(celdaPlaylist adl[],int validos)
     while(i < validos)
     {
         printf("\n\Playlist %d\n",adl[i].idPlaylist);
-        printf("_______________________________________");
         printf("\nId Usuario: %d\n",adl[i].usuario.idUsuario);
+        printf("\nNombre Usuario: %s\n",adl[i].usuario.nombreUsuario);
+        printf("_______________________________________");
         muestraListaCanciones(adl[i].listaCancion);
         printf("\n\n_______________________________________\n\n");
         i++;
@@ -116,8 +117,8 @@ int mostrarArregloListaUsuario(celdaPlaylist adl[],int idUsuario,int validos)
         if(adl[i].usuario.idUsuario == idUsuario)
         {
             printf("\n\Playlist %d\n",adl[i].idPlaylist);
-            printf("_______________________________________");
             printf("\nId Usuario: %d\n",adl[i].usuario.idUsuario);
+            printf("_______________________________________");
             muestraListaCanciones(adl[i].listaCancion);
             printf("\n\n_______________________________________\n\n");
             flag = 1;
@@ -160,6 +161,7 @@ void guardarEnArchivo(celdaPlaylist adl[],int validos) /// PASA LOS ARREGLOS DE 
             while(seg != NULL)
             {
                 r.idCancion = seg->datoCancion.idCancion;
+                r.eliminado = 0;
                 respuesta = verificarExistenciaRegistroEnArchivo(r);
                 if(respuesta != 1)
                 {
@@ -170,7 +172,7 @@ void guardarEnArchivo(celdaPlaylist adl[],int validos) /// PASA LOS ARREGLOS DE 
             i++;
         }
 }
-int archivoToADL(celdaPlaylist adl[])
+int archivoToADL(celdaPlaylist adl[],int dim)
 {
     registroPlaylist registro;
     stCancion cancion;
@@ -179,17 +181,40 @@ int archivoToADL(celdaPlaylist adl[])
     FILE * archi = fopen(arPlaylist,"rb");
     if(archi != NULL)
     {
-        while(fread(&registro,sizeof(registroPlaylist),1,archi) > 0)
+        while((validos < dim)&&(fread(&registro,sizeof(registroPlaylist),1,archi) > 0))
         {
+            if(registro.eliminado == 0)
+            {
                 cancion = buscarCancionEnArchivo(registro.idCancion);
                 if(cancion.eliminado == 0)
                 {
                     usuario = buscarUsuarioEnArchivo(registro.idUsuario);
                     validos = guardarArreglo(adl,usuario,cancion,validos);
                 }
+            }
         }
     }
     fclose(archi);
     return validos;
 }
-
+int verificarExistenciaCancionEnLista(celdaPlaylist arregloLista[],int idUsuario,char nombreCancion[],int validos)
+{
+    int i = 0;
+    nodoListaCancion * seg;
+    int flag = 0;
+    while((flag == 0)&&(i < validos))
+    {
+        if((flag == 0)&&(arregloLista[i].usuario.idUsuario == idUsuario)) /// SI EL USUARIO QUE INICIO SESION TIENE PLAYLIST
+        {
+            seg = arregloLista[i].listaCancion;
+            while((flag == 0)&&(seg != NULL))
+            {
+                if(strcmpi(seg->datoCancion.titulo,nombreCancion) == 0) /// SI ALGUNA CANCION DE LA PLAYLIST ES IGUAL A LA QUE INGRESO
+                    flag = 1;
+                    seg = seg->siguiente;
+            }
+        }
+        i++;
+    }
+    return flag;
+}

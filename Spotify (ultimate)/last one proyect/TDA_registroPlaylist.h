@@ -14,5 +14,5 @@ typedef struct{
 void guardarUnRegistro(registroPlaylist registro);
 void mostrarArchivoPlaylist();
 void muestraUnRegistro(registroPlaylist registro);
-
+void eliminarRegistroPlaylist(int idUsuario,int idCancion);
 #endif // TDA_REGISTROPLAYLIST_H_INCLUDED

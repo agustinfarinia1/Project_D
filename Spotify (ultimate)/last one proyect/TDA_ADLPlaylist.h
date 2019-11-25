@@ -17,7 +17,7 @@ int agregarIdUsuario(celdaPlaylist adl[],stUsuario usuario,int validos);
 void mostrarArregloLista(celdaPlaylist adl[],int validos);
 int mostrarArregloListaUsuario(celdaPlaylist adl[],int idUsuario,int validos);
 int obtenerIdPlaylist(int idUsuario);
-
+int archivoToADL(celdaPlaylist adl[],int dim);
 void guardarEnArchivo(celdaPlaylist adl[],int validos);
-int archivoToADL(celdaPlaylist adl[]);
+int verificarExistenciaCancionEnLista(celdaPlaylist arregloLista[],int idUsuario,char nombreCancion[],int validos);
 #endif // TDA_ADLPLAYLIST_H_INCLUDED

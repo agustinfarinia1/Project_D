@@ -616,3 +616,110 @@
 	<time.h>
 	"TDA_Cancion.h"
 
+1574633359 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574633359 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\main.c
+	<stdio.h>
+	<stdlib.h>
+	"windows.h"
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Arbol.h"
+	"TDA_Cancion.h"
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.h
+	"TDA_ADLPlaylist.h"
+
+1574643749 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_adlplaylist.h
+	"TDA_Usuario.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.h
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_listacancion.h
+	"TDA_Cancion.h"
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.h
+
+1574645037 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_registroplaylist.h
+	"TDA_ADLPlaylist.h"
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_arbol.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574644606 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_adlplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ADLPlaylist.h"
+
+1574633359 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_arbol.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+	"TDA_registroPlaylist.h"
+	"TDA_Arbol.h"
+	"Tools.h"
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tools.h
+	"TDA_Cancion.h"
+	"TDA_ListaCancion.h"
+
+1574641256 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_cancion.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	"TDA_Cancion.h"
+
+1574643692 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_listacancion.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"TDA_ListaCancion.h"
+	"TDA_Cancion.h"
+
+1574645962 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_registroplaylist.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_registroPlaylist.h"
+
+1574638455 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_usuario.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"TDA_Usuario.h"
+
+1574633359 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<string.h>
+	"TDA_Cancion.h"
+	"Tools.h"
+
+1574645027 source:c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\tda_menu.c
+	<stdio.h>
+	<stdlib.h>
+	"gotoxy.h"
+	<windows.h>
+	"TDA_MENU.h"
+	"TDA_Usuario.h"
+	"TDA_Cancion.h"
+	"TDA_ADLPlaylist.h"
+	"TDA_Arbol.h"
+	"TDA_registroPlaylist.h"
+
+1574633359 c:\users\nicolas\documents\github\project_d\spotify (ultimate)\last one proyect\gotoxy.h
+

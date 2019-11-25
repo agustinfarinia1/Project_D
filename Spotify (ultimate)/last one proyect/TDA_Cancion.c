@@ -82,7 +82,7 @@ int ultimaid()
 
 void mostrar_cancion (stCancion a)
 {
-    printf("ID Cancion: %d\n", a.idCancion);
+    printf("\nID Cancion: %d\n", a.idCancion);
     printf("Artista:    %s \n", a.artista);
     printf("Album:      %s\n", a.album);
     printf("Cancion:    %s \n", a.titulo);
@@ -247,9 +247,12 @@ int verificarExistenciaCancionEnArchivo(char nombreCancion[]) /// PREGUNTAR ERIC
     {
         while(fread(&c, sizeof(stCancion), 1, archi)>0 && (flag == 0))
         {
-            if(strcmp(c.titulo,nombreCancion) == 0)
+            if(strcmpi(c.titulo,nombreCancion) == 0)
             {
-                flag = 1;
+                if(c.eliminado == 0)
+                {
+                    flag = 1;
+                }
             }
         }
     }
@@ -356,7 +359,10 @@ stCancion obtenerCancionPorNombre(char nombreArchi[],char nombreCancion[])
         {
             if(strcmpi(nombreCancion,cancion.titulo) == 0) /// COMPARA EL NOMBRE
             {
-                flag = 1;
+                if(cancion.eliminado == 0)
+                {
+                    flag = 1;
+                }
             }
         }
         if(flag == 0)

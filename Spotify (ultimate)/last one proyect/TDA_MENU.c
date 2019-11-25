@@ -108,9 +108,9 @@ void Case_user()
         do{
             system("CLS");
             Screen_user_menu();
-            int dimArreglo = 100; // FALTA FUNCION PARA SACAR  DIM DINAMICA, CONTANDO TODOS LOS USERS DEL ARRAY
+            int dimArreglo = buscaUltimoID() + 5; // FALTA FUNCION PARA SACAR  DIM DINAMICA, CONTANDO TODOS LOS USERS DEL ARRAY
             celdaPlaylist arregloLista[dimArreglo];
-            int validos = archivoToADL(arregloLista);   // INGRESA TODOS LOS DATOS DEL ARCHIVO EN ARREGLO PARA PODER EMPEZAR A TRABAJAR
+            int validos = archivoToADL(arregloLista,dimArreglo);   // INGRESA TODOS LOS DATOS DEL ARCHIVO EN ARREGLO PARA PODER EMPEZAR A TRABAJAR
             opc = getch();
             switch (opc)
             {
@@ -272,7 +272,7 @@ void Case_administrarcanciones()     /// Switch menu que administra las cancione
         Screen_SubMenu_Administracion_Canciones();
         int dimArregloCancion = ultimaid() + 1;
         stCancion arregloCancion[dimArregloCancion];
-        int validosCancion = cargarArregloCancionDesdeArchivo(arregloCancion,dimArregloCancion);
+        int validosCancion = archivoToADL(arregloCancion,dimArregloCancion);
         int op = -1;
         opcion = getch();
         switch(opcion)
@@ -409,6 +409,8 @@ void Screen_usuario_playlist(int idUsuario,celdaPlaylist arregloLista[],int vali
         int posicion = -1;
         int existencia = 0;
         char nombreCancion[30];
+        int idCancion;
+        stCancion cancion;
         stCancion a; /// PARA ESCUCHAR
         Sleep(200);
         switch(opcionMenu)
@@ -433,13 +435,30 @@ void Screen_usuario_playlist(int idUsuario,celdaPlaylist arregloLista[],int vali
                     guardarEnArchivo(arregloLista,validos);
                     system("cls");
                 break;
-                case 51:
-                        guardarEnArchivo(arregloLista, validos);
-                        mostrarArregloLista(arregloLista, validos);
-                        system("pause");
+                case 51:/// MUESTRA TODAS LAS PLAYLIST
+                    system("cls");
+                    mostrarArregloLista(arregloLista,validos);
+                    system("pause");
                 break;
                 case 52: /**< Borrar una cancion de la playlist */
-
+                    system("cls");
+                    printf("Ingrese cancion a eliminar: ");
+                    fflush(stdin);
+                    gets(nombreCancion);
+                    existencia = verificarExistenciaCancionEnLista(arregloLista,idUsuario,nombreCancion,validos);
+                    if(existencia == 1)
+                    {
+                    cancion = obtenerCancionPorNombre(arCancion,nombreCancion);
+                    posicion = buscaPosUsuario(arregloLista,idUsuario,validos);
+                    arregloLista[posicion].listaCancion = borrarNodoPorID(arregloLista[posicion].listaCancion,cancion.idCancion);
+                    eliminarRegistroPlaylist(idUsuario,cancion.idCancion);
+                    printf("Se elimino la cancion correctamente");
+                    }
+                    else
+                    {
+                        printf("la cancion que usted ingreso no se encuentra en la playlist");
+                    }
+                    system("pause");
                 break;
                 case 53:
                     system("cls");
